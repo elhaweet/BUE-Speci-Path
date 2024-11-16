@@ -186,92 +186,181 @@ app.post('/recommend-specialization', (req, res) => {
 
 // SAMEHHHH ---------------------------------------------------------------------------------
 const careerData = [
-    {
-      specialization: 'AI (Artificial Intelligence)',
-      careers: [
-        {
-          name: 'Machine Learning Engineer',
-          description: 'Designs and implements machine learning models and algorithms.',
-          requiredSkills: ['Python', 'TensorFlow', 'Data Analysis'],
-          resources: ['Coursera: Machine Learning by Andrew Ng', 'Udacity: Deep Learning Nanodegree']
-        },
-        {
-          name: 'AI Research Scientist',
-          description: 'Conducts research to develop new AI algorithms and technologies.',
-          requiredSkills: ['Mathematics', 'Research Skills', 'Programming'],
-          resources: ['edX: AI for Everyone', 'Kaggle: Advanced ML Techniques']
-        }
-      ]
-    },
-    {
-      specialization: 'SE (Software Engineering)',
-      careers: [
-        {
-          name: 'Software Developer',
-          description: 'Develops software solutions by studying information needs and systems flow.',
-          requiredSkills: ['JavaScript', 'Problem Solving', 'Version Control'],
-          resources: ['Udemy: The Complete Web Developer Course', 'Pluralsight: Software Design Patterns']
-        },
-        {
-          name: 'DevOps Engineer',
-          description: 'Works on automating and streamlining software development processes.',
-          requiredSkills: ['CI/CD Tools', 'Cloud Platforms', 'Scripting'],
-          resources: ['LinkedIn Learning: DevOps Foundations', 'AWS Training: DevOps on AWS']
-        }
-      ]
-    },
-    {
-      specialization: 'IS (Information Systems)',
-      careers: [
-        {
-          name: 'IT Consultant',
-          description: 'Analyzes and evaluates IT systems to meet business needs.',
-          requiredSkills: ['Business Analysis', 'Technical Writing', 'Communication'],
-          resources: ['Coursera: IT Fundamentals', 'edX: IT Management']
-        },
-        {
-          name: 'Systems Analyst',
-          description: 'Designs and implements IT solutions that improve business efficiency.',
-          requiredSkills: ['Systems Analysis', 'Project Management', 'Database Management'],
-          resources: ['Udemy: Systems Analysis & Design', 'Pluralsight: Database Fundamentals']
-        }
-      ]
-    },
-    {
-      specialization: 'CN (Computer Networks)',
-      careers: [
-        {
-          name: 'Network Administrator',
-          description: 'Manages and maintains computer networks and related computing environments.',
-          requiredSkills: ['Networking Protocols', 'Firewall Management', 'Troubleshooting'],
-          resources: ['Cisco: CCNA Certification', 'CompTIA Network+ Training']
-        },
-        {
-          name: 'Network Security Specialist',
-          description: 'Ensures the security and integrity of an organization’s network.',
-          requiredSkills: ['Cybersecurity', 'Encryption Methods', 'Incident Response'],
-          resources: ['Cybersecurity Fundamentals by IBM', 'SANS Cyber Aces']
-        }
-      ]
-    },
-    {
-      specialization: 'CS (Computer Science)',
-      careers: [
-        {
-          name: 'Software Engineer',
-          description: 'Develops, tests, and maintains software applications.',
-          requiredSkills: ['Programming', 'Problem Solving', 'Version Control'],
-          resources: ['Udemy: Complete Python Course', 'Coursera: Data Structures and Algorithms']
-        },
-        {
-          name: 'Data Scientist',
-          description: 'Analyzes and interprets complex data to help make informed decisions.',
-          requiredSkills: ['Statistics', 'Machine Learning', 'Data Visualization'],
-          resources: ['DataCamp: Data Science Bootcamp', 'Kaggle: Intro to Machine Learning']
-        }
-      ]
-    }
-  ];
+  {
+    specialization: 'AI (Artificial Intelligence)',
+    careers: [
+      {
+        name: 'Machine Learning Engineer',
+        description: 'Designs and implements machine learning models and algorithms.',
+        requiredSkills: ['Python', 'TensorFlow', 'Data Analysis'],
+        resources: ['Coursera: Machine Learning by Andrew Ng', 'Udacity: Deep Learning Nanodegree']
+      },
+      {
+        name: 'AI Research Scientist',
+        description: 'Conducts research to develop new AI algorithms and technologies.',
+        requiredSkills: ['Mathematics', 'Research Skills', 'Programming'],
+        resources: ['edX: AI for Everyone', 'Kaggle: Advanced ML Techniques']
+      },
+      {
+        name: 'Robotics Engineer',
+        description: 'Develops robots and robotic systems to enhance automation.',
+        requiredSkills: ['C++', 'Robotics Frameworks', 'Mechanical Engineering'],
+        resources: ['Robotics Certification by MIT', 'Robotics Specialization on Coursera']
+      },
+      {
+        name: 'Natural Language Processing (NLP) Engineer',
+        description: 'Works on building systems that understand and generate human language.',
+        requiredSkills: ['Linguistics', 'Python', 'NLP Libraries (spaCy, NLTK)'],
+        resources: ['Stanford NLP Course', 'Hugging Face Tutorials']
+      }
+    ]
+  },
+  {
+    specialization: 'SE (Software Engineering)',
+    careers: [
+      {
+        name: 'Software Developer',
+        description: 'Develops software solutions by studying information needs and systems flow.',
+        requiredSkills: ['JavaScript', 'Problem Solving', 'Version Control'],
+        resources: ['Udemy: The Complete Web Developer Course', 'Pluralsight: Software Design Patterns']
+      },
+      {
+        name: 'DevOps Engineer',
+        description: 'Works on automating and streamlining software development processes.',
+        requiredSkills: ['CI/CD Tools', 'Cloud Platforms', 'Scripting'],
+        resources: ['LinkedIn Learning: DevOps Foundations', 'AWS Training: DevOps on AWS']
+      },
+      {
+        name: 'Full Stack Developer',
+        description: 'Handles both client-side and server-side development of applications.',
+        requiredSkills: ['HTML/CSS', 'Node.js', 'React/Vue/Angular'],
+        resources: ['Full Stack Web Developer Bootcamp', 'Frontend Masters']
+      },
+      {
+        name: 'Backend Engineer',
+        description: 'Focuses on server-side logic, database interaction, and APIs.',
+        requiredSkills: ['Node.js', 'Databases', 'RESTful APIs'],
+        resources: ['Backend Development on Pluralsight', 'Coursera: Backend with Node.js']
+      }
+    ]
+  },
+  {
+    specialization: 'IS (Information Systems)',
+    careers: [
+      {
+        name: 'IT Consultant',
+        description: 'Analyzes and evaluates IT systems to meet business needs.',
+        requiredSkills: ['Business Analysis', 'Technical Writing', 'Communication'],
+        resources: ['Coursera: IT Fundamentals', 'edX: IT Management']
+      },
+      {
+        name: 'Systems Analyst',
+        description: 'Designs and implements IT solutions that improve business efficiency.',
+        requiredSkills: ['Systems Analysis', 'Project Management', 'Database Management'],
+        resources: ['Udemy: Systems Analysis & Design', 'Pluralsight: Database Fundamentals']
+      },
+      {
+        name: 'Business Intelligence (BI) Analyst',
+        description: 'Uses data analysis tools to support decision-making within an organization.',
+        requiredSkills: ['Data Analytics', 'SQL', 'Dashboarding Tools'],
+        resources: ['Data Visualization with Tableau', 'Power BI Course by Microsoft']
+      },
+      {
+        name: 'Database Administrator',
+        description: 'Manages and maintains database systems for optimal performance.',
+        requiredSkills: ['SQL', 'Database Design', 'Backup and Recovery'],
+        resources: ['Database Management on Udemy', 'Oracle DB Training']
+      }
+    ]
+  },
+  {
+    specialization: 'CN (Computer Networks)',
+    careers: [
+      {
+        name: 'Network Administrator',
+        description: 'Manages and maintains computer networks and related computing environments.',
+        requiredSkills: ['Networking Protocols', 'Firewall Management', 'Troubleshooting'],
+        resources: ['Cisco: CCNA Certification', 'CompTIA Network+ Training']
+      },
+      {
+        name: 'Network Security Specialist',
+        description: 'Ensures the security and integrity of an organization’s network.',
+        requiredSkills: ['Cybersecurity', 'Encryption Methods', 'Incident Response'],
+        resources: ['Cybersecurity Fundamentals by IBM', 'SANS Cyber Aces']
+      },
+      {
+        name: 'Cloud Network Engineer',
+        description: 'Designs and manages cloud-based network solutions for scalable infrastructure.',
+        requiredSkills: ['Cloud Networking', 'AWS/Azure/GCP', 'Automation'],
+        resources: ['Cloud Networking on AWS', 'Azure Network Engineer Training']
+      },
+      {
+        name: 'VoIP Engineer',
+        description: 'Specializes in the installation and maintenance of VoIP systems.',
+        requiredSkills: ['SIP Protocols', 'Network Configuration', 'Unified Communications'],
+        resources: ['VoIP Training by Cisco', 'Asterisk VOIP Certification']
+      }
+    ]
+  },
+  {
+    specialization: 'CS (Computer Science)',
+    careers: [
+      {
+        name: 'Software Engineer',
+        description: 'Develops, tests, and maintains software applications.',
+        requiredSkills: ['Programming', 'Problem Solving', 'Version Control'],
+        resources: ['Udemy: Complete Python Course', 'Coursera: Data Structures and Algorithms']
+      },
+      {
+        name: 'Data Scientist',
+        description: 'Analyzes and interprets complex data to help make informed decisions.',
+        requiredSkills: ['Statistics', 'Machine Learning', 'Data Visualization'],
+        resources: ['DataCamp: Data Science Bootcamp', 'Kaggle: Intro to Machine Learning']
+      },
+      {
+        name: 'Cybersecurity Analyst',
+        description: 'Monitors and protects computer systems and networks from security breaches.',
+        requiredSkills: ['Threat Detection', 'Penetration Testing', 'SIEM Tools'],
+        resources: ['CompTIA Security+', 'CISSP Training by ISC2']
+      },
+      {
+        name: 'Game Developer',
+        description: 'Creates and develops video games for various platforms.',
+        requiredSkills: ['C#', 'Unity/Unreal Engine', 'Game Design'],
+        resources: ['Game Development on Udemy', 'Unity Learn Platform']
+      }
+    ]
+  },
+  {
+    specialization: 'Web Development',
+    careers: [
+      {
+        name: 'Frontend Developer',
+        description: 'Builds the client-side of web applications using modern frameworks.',
+        requiredSkills: ['HTML/CSS', 'JavaScript', 'React/Vue/Angular'],
+        resources: ['Modern React with Redux', 'Frontend Development Bootcamp']
+      },
+      {
+        name: 'Backend Developer',
+        description: 'Develops server-side logic and database management for web applications.',
+        requiredSkills: ['Node.js/Java', 'SQL/NoSQL', 'RESTful APIs'],
+        resources: ['Backend Development with Node.js', 'Django for Beginners']
+      },
+      {
+        name: 'Full Stack Developer',
+        description: 'Manages both the front and back end of web applications.',
+        requiredSkills: ['HTML/CSS/JavaScript', 'Backend Frameworks', 'APIs'],
+        resources: ['Full Stack Web Developer Course', 'Codecademy: Full-Stack Engineer Path']
+      },
+      {
+        name: 'Web Designer',
+        description: 'Designs visually appealing and user-friendly web interfaces.',
+        requiredSkills: ['UI/UX Design', 'HTML/CSS', 'Graphic Design Tools'],
+        resources: ['Web Design Essentials by Coursera', 'Adobe XD Training']
+      }
+    ]
+  }
+];
   
   // Endpoint: ExploreCareerOptions()
   app.get('/explore-career-options', (req, res) => {
