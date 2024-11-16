@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
 const port = 5000;
 
@@ -182,6 +181,158 @@ app.post('/recommend-specialization', (req, res) => {
 
   res.json(result);
 });
+
+
+
+// SAMEHHHH ---------------------------------------------------------------------------------
+const careerData = [
+    {
+      specialization: 'AI (Artificial Intelligence)',
+      careers: [
+        {
+          name: 'Machine Learning Engineer',
+          description: 'Designs and implements machine learning models and algorithms.',
+          requiredSkills: ['Python', 'TensorFlow', 'Data Analysis'],
+          resources: ['Coursera: Machine Learning by Andrew Ng', 'Udacity: Deep Learning Nanodegree']
+        },
+        {
+          name: 'AI Research Scientist',
+          description: 'Conducts research to develop new AI algorithms and technologies.',
+          requiredSkills: ['Mathematics', 'Research Skills', 'Programming'],
+          resources: ['edX: AI for Everyone', 'Kaggle: Advanced ML Techniques']
+        }
+      ]
+    },
+    {
+      specialization: 'SE (Software Engineering)',
+      careers: [
+        {
+          name: 'Software Developer',
+          description: 'Develops software solutions by studying information needs and systems flow.',
+          requiredSkills: ['JavaScript', 'Problem Solving', 'Version Control'],
+          resources: ['Udemy: The Complete Web Developer Course', 'Pluralsight: Software Design Patterns']
+        },
+        {
+          name: 'DevOps Engineer',
+          description: 'Works on automating and streamlining software development processes.',
+          requiredSkills: ['CI/CD Tools', 'Cloud Platforms', 'Scripting'],
+          resources: ['LinkedIn Learning: DevOps Foundations', 'AWS Training: DevOps on AWS']
+        }
+      ]
+    },
+    {
+      specialization: 'IS (Information Systems)',
+      careers: [
+        {
+          name: 'IT Consultant',
+          description: 'Analyzes and evaluates IT systems to meet business needs.',
+          requiredSkills: ['Business Analysis', 'Technical Writing', 'Communication'],
+          resources: ['Coursera: IT Fundamentals', 'edX: IT Management']
+        },
+        {
+          name: 'Systems Analyst',
+          description: 'Designs and implements IT solutions that improve business efficiency.',
+          requiredSkills: ['Systems Analysis', 'Project Management', 'Database Management'],
+          resources: ['Udemy: Systems Analysis & Design', 'Pluralsight: Database Fundamentals']
+        }
+      ]
+    },
+    {
+      specialization: 'CN (Computer Networks)',
+      careers: [
+        {
+          name: 'Network Administrator',
+          description: 'Manages and maintains computer networks and related computing environments.',
+          requiredSkills: ['Networking Protocols', 'Firewall Management', 'Troubleshooting'],
+          resources: ['Cisco: CCNA Certification', 'CompTIA Network+ Training']
+        },
+        {
+          name: 'Network Security Specialist',
+          description: 'Ensures the security and integrity of an organization’s network.',
+          requiredSkills: ['Cybersecurity', 'Encryption Methods', 'Incident Response'],
+          resources: ['Cybersecurity Fundamentals by IBM', 'SANS Cyber Aces']
+        }
+      ]
+    },
+    {
+      specialization: 'CS (Computer Science)',
+      careers: [
+        {
+          name: 'Software Engineer',
+          description: 'Develops, tests, and maintains software applications.',
+          requiredSkills: ['Programming', 'Problem Solving', 'Version Control'],
+          resources: ['Udemy: Complete Python Course', 'Coursera: Data Structures and Algorithms']
+        },
+        {
+          name: 'Data Scientist',
+          description: 'Analyzes and interprets complex data to help make informed decisions.',
+          requiredSkills: ['Statistics', 'Machine Learning', 'Data Visualization'],
+          resources: ['DataCamp: Data Science Bootcamp', 'Kaggle: Intro to Machine Learning']
+        }
+      ]
+    }
+  ];
+  
+  // Endpoint: ExploreCareerOptions()
+  app.get('/explore-career-options', (req, res) => {
+    const { specialization } = req.query;
+    const result = careerData.find(item => item.specialization === specialization);
+    if (result) {
+      res.json(result.careers);
+    } else {
+      res.status(404).json({ message: 'Specialization not found' });
+    }
+  });
+  
+  // Endpoint: GetCareerDescriptions()
+  app.get('/career-descriptions', (req, res) => {
+    const { specialization, career } = req.query;
+    const specializationData = careerData.find(item => item.specialization === specialization);
+    if (specializationData) {
+      const careerDetail = specializationData.careers.find(c => c.name === career);
+      if (careerDetail) {
+        res.json({ description: careerDetail.description });
+      } else {
+        res.status(404).json({ message: 'Career not found' });
+      }
+    } else {
+      res.status(404).json({ message: 'Specialization not found' });
+    }
+  });
+  
+  // Endpoint: ListRequiredSkills()
+  app.get('/required-skills', (req, res) => {
+    const { specialization, career } = req.query;
+    const specializationData = careerData.find(item => item.specialization === specialization);
+    if (specializationData) {
+      const careerDetail = specializationData.careers.find(c => c.name === career);
+      if (careerDetail) {
+        res.json({ skills: careerDetail.requiredSkills });
+      } else {
+        res.status(404).json({ message: 'Career not found' });
+      }
+    } else {
+      res.status(404).json({ message: 'Specialization not found' });
+    }
+  });
+  
+  // Endpoint: SkillDevelopmentResources()
+  app.get('/skill-development-resources', (req, res) => {
+    const { specialization, career } = req.query;
+    const specializationData = careerData.find(item => item.specialization === specialization);
+    if (specializationData) {
+      const careerDetail = specializationData.careers.find(c => c.name === career);
+      if (careerDetail) {
+        res.json({ resources: careerDetail.resources });
+      } else {
+        res.status(404).json({ message: 'Career not found' });
+      }
+    } else {
+      res.status(404).json({ message: 'Specialization not found' });
+    }
+  });
+  
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
