@@ -491,7 +491,7 @@ const careerData = [
     ]
   },
   {
-    specialization: 'CS (Computer Science )',
+    specialization: 'CS (Computer Science)',
     careers: [
       {
         name: 'Software Engineer',
