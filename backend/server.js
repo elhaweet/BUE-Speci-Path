@@ -1227,26 +1227,35 @@ app.get("/get-courses", async (req, res) => {
     return res.status(400).json({ error: "Query parameter is required" });
   }
 
+  async function getCourseraCourses(query) {
+    try {
+      // Fetch courses from Coursera API
+      const response = await axios.get(
+        `https://api.coursera.org/api/courses.v1?q=search&query=${query}&includes=instructorIds,partnerIds&fields=name,description,photoUrl`
+      );
+
+      // Process Coursera response to extract relevant course data
+      return response.data.elements.map((course) => ({
+        title: course.name,
+        description: course.description || "No description available",
+        platform: "Coursera",
+        url: `https://www.coursera.org/learn/${course.slug}`,
+        image: course.photoUrl || "No image available",
+      }));
+    } catch (error) {
+      console.error("Error fetching courses from Coursera:", error.message);
+      return []; // Return an empty array on failure
+    }
+  }
+
   try {
-    // Make a request to the Coursera API
-    const response = await axios.get(
-      `https://api.coursera.org/api/courses.v1?q=search&query=${query}&includes=instructorIds,partnerIds&fields=name,description,photoUrl`
-    );
+    const courseraCourses = await getCourseraCourses(query);
 
-    // Process the response to extract course data
-    const courses = response.data.elements.map((course) => ({
-      title: course.name,
-      description: course.description || "No description available",
-      platform: "Coursera",
-      url: `https://www.coursera.org/learn/${course.slug}`,
-      image: course.photoUrl || "No image available",
-    }));
-
-    // Return courses as JSON response
-    res.json(courses);
+    // Return the Coursera courses as JSON response
+    res.json(courseraCourses);
   } catch (error) {
-    console.error("Error fetching courses from Coursera:", error.message);
-    res.status(500).json({ error: "Failed to fetch courses from Coursera" });
+    console.error("Error fetching courses:", error.message);
+    res.status(500).json({ error: "Failed to fetch courses" });
   }
 });
 

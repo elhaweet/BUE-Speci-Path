@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./KnowledgeHub.css";
 
-function KnowledgeHup() {
+function KnowledgeHub() {
   const [courses, setCourses] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [KnowledgeHub, setKnowledgeHub] = useState("Software Development");
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const coursesPerPage = 18;
 
   useEffect(() => {
     // Fetch recommended courses for the career when the component loads
@@ -30,9 +32,32 @@ function KnowledgeHup() {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      setCurrentPage(1); // Reset to the first page on new search
       fetchCourses(searchQuery);
     }
   };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    // Ensure the scroll happens after DOM update
+    setTimeout(() => {
+      document.querySelector("#BG-img").scrollIntoView({
+        behavior: "smooth",
+        block: "start", // Scrolls to the top of the element
+      });
+    }, 100); // Small delay to ensure DOM updates
+  };
+
+  // Get current courses for the page
+  const indexOfLastCourse = currentPage * coursesPerPage;
+  const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+  const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
+
+  // Calculate total pages
+  const totalPages = Math.ceil(courses.length / coursesPerPage);
+
+  // Create an array of page numbers
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
     <div id="BG-img">
@@ -61,12 +86,16 @@ function KnowledgeHup() {
         {/* Course List */}
         {isLoading ? (
           <p>Loading courses...</p>
-        ) : courses.length > 0 ? (
+        ) : currentCourses.length > 0 ? (
           <div className="course-list">
-            {courses.map((course, index) => (
+            {currentCourses.map((course, index) => (
               <div key={index} className="course-item">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="course-image"
+                />
                 <h3 className="course-title">{course.title}</h3>
-                <p className="course-description">{course.description}</p>
                 <p>
                   <strong>Platform:</strong> {course.platform}
                 </p>
@@ -84,9 +113,26 @@ function KnowledgeHup() {
         ) : (
           <p>No courses found.</p>
         )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="pagination">
+            {pageNumbers.map((number) => (
+              <button
+                key={number}
+                className={`page-button ${
+                  currentPage === number ? "active" : ""
+                }`}
+                onClick={() => handlePageChange(number)}
+              >
+                {number}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export default KnowledgeHup;
+export default KnowledgeHub;
