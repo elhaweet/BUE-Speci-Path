@@ -65,15 +65,19 @@ function CareerPlanning() {
                 <p className="career-description"><strong>Description:</strong> {career.description}</p>
                 <p className="career-skills"><strong>Required Skills:</strong> {career.requiredSkills.join(', ')}</p>
                 <p className="career-skills"><strong>Resources:</strong></p>
-                <ul className="resources-list">
+                <div className="resources-container">
                   {career.resources.map((resource, resourceIndex) => (
-                    <li key={resourceIndex} className="resource-item">
-                      <a href={resource.link} className="resource-link" target="_blank" rel="noopener noreferrer">
-                        {resource.title}
-                      </a>
-                    </li>
+                    <a 
+                      key={resourceIndex} 
+                      href={resource.link} 
+                      className="resource-button" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      {resource.title}
+                    </a>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>

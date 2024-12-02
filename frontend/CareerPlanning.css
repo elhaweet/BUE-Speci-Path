@@ -1,179 +1,187 @@
 #BG-img {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f7f8fc;
-    background-image: url("./images/BUE_logo.png");
-    background-position: center;
-    background-size: auto 95%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f8fc;
+  background-image: url("./images/BUE_logo.png");
+  background-position: center;
+  background-size: auto 95%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 30px;
+  max-width: 900px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  opacity: 0.97;
+}
+
+.heading {
+  font-size: 2.5rem;
+  color: #4A90E2;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.select-box {
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 50px;
+  border: 2px solid #007BFF;
+  width: 60%;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.select-box:focus {
+  border-color: #0060FF;
+}
+
+.career-option {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.career-option:hover {
+  transform: scale(1.01);
+}
+
+.career-name {
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.career-description,
+.career-skills {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.resources-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.resource-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resource-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.no-options {
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #BG-img {
+    background-size: auto 60%;
   }
-  
+
   .content {
-    padding: 30px;
-    max-width: 900px;
-    width: 100%;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    opacity: 0.97;
-  }
-  
-  .heading {
-    font-size: 2.5rem;
-    color: #4A90E2;
-    margin-bottom: 30px;
-    font-weight: 600;
-  }
-  
-  .select-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .select-box {
-    padding: 15px;
-    font-size: 1rem;
-    border-radius: 50px;
-    border: 2px solid #007BFF;
-    width: 60%;
-    outline: none;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .select-box:focus {
-    border-color: #0060FF;
-  }
-  
-  .career-option {
-    background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transform: scale(1);
-    transition: transform 0.3s ease;
+    max-width: 100%;
+    margin-top: 20px;
   }
-  
-  .career-option:hover {
-    transform: scale(1.01);
+
+  .heading {
+    font-size: 2rem;
   }
-  
+
+  .select-box {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+
   .career-name {
-    color: #333;
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
   }
-  
-  .career-description,
-  .career-skills {
-    color: #666;
-    font-size: 1rem;
-    margin-bottom: 10px;
+
+  .career-description, .career-skills {
+    font-size: 0.9rem;
   }
-  
-  .resources-list {
-    text-align: center;
-    margin-top: 10px;
-    color: #555;
-    list-style-type: none;
-    padding-left: 0;
+
+  .career-option {
+    padding: 15px;
   }
-  
-  .resource-item {
-    font-size: 1rem;
-    margin-bottom: 5px;
+
+  .resource-button {
+    padding: 8px 15px;
+    font-size: 0.8rem;
   }
-  
-  .resource-link {
-    color: #007bff;
-    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  #BG-img {
+    background-size: auto 50%;
   }
-  
-  .no-options {
-    color: #999;
+
+  .content {
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .select-box {
+    width: 90%;
+    font-size: 0.85rem;
+  }
+
+  .career-name {
     font-size: 1.2rem;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #BG-img {
-      background-size: auto 60%;
-    }
-  
-    .content {
-      padding: 20px;
-      max-width: 100%;
-      margin-top: 20px;
-    }
-  
-    .heading {
-      font-size: 2rem;
-    }
-  
-    .select-box {
-      width: 80%;
-      font-size: 0.9rem;
-    }
-  
-    .career-name {
-      font-size: 1.4rem;
-    }
-  
-    .career-description, .career-skills {
-      font-size: 0.9rem;
-    }
-  
-    .career-option {
-      padding: 15px;
-    }
+
+  .career-description, .career-skills {
+    font-size: 0.85rem;
   }
-  
-  @media (max-width: 480px) {
-    #BG-img {
-      background-size: auto 50%;
-    }
-  
-    .content {
-      padding: 15px;
-    }
-  
-    .heading {
-      font-size: 1.8rem;
-    }
-  
-    .select-box {
-      width: 90%;
-      font-size: 0.85rem;
-    }
-  
-    .career-name {
-      font-size: 1.2rem;
-    }
-  
-    .career-description, .career-skills {
-      font-size: 0.85rem;
-    }
-  
-    .career-option {
-      padding: 10px;
-    }
-  
-    .resource-item {
-      font-size: 0.9rem;
-    }
-  
-    .no-options {
-      font-size: 1rem;
-    }
+
+  .career-option {
+    padding: 10px;
   }
-  
+
+  .resource-button {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}

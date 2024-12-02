@@ -116,27 +116,69 @@ const MCQComponent = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [recommendation, setRecommendation] = useState(null);
   const [specializationScores, setSpecializationScores] = useState(null);
+  const [showExploreCareer, setShowExploreCareer] = useState(false);
 
   const gradeQuestions = [
-    { question: "What is your grade in module M1?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M2?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M3?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M4?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M5?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M6?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M7?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M8?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M9?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module M10?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Infomation Systems?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Introduction to Computing ?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Math 1?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Math 2?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Introduction to Web Programing?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Software Engineering 1?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Programing In Java?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Probability And Statistics?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Introduction to Networking?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Operating Systems?", options: ["A", "B", "C", "D"] },
   ];
 
   const mcqQuestions = [
-    { question: "What is the primary focus of your studies?", options: ["Computer Science", "Engineering", "Business", "Arts"] },
-    { question: "Which area interests you the most?", options: ["Data Analysis", "Software Development", "Network Security", "User Interface Design"] },
-    { question: "What type of projects do you enjoy working on?", options: ["Research-oriented", "Product Development", "System Administration", "Creative Design"] },
-    { question: "Which skill do you want to improve the most?", options: ["Programming", "Problem-solving", "Communication", "Project Management"] },
-    { question: "What kind of work environment do you prefer?", options: ["Corporate", "Startup", "Academia", "Freelance"] },
+    {
+      question: "How much do you enjoy solving complex problems using patterns and logic?",
+      options: [
+        "I love it and excel at it", // AI: 1, SE: 0.7, CN: 0.5, IS: 0.6, CS: 0.8
+        "I find it intriguing but challenging", // AI: 0.7, SE: 0.5, CN: 0.4, IS: 0.5, CS: 0.6
+        "I prefer straightforward tasks", // AI: 0.4, SE: 0.3, CN: 0.3, IS: 0.4, CS: 0.5
+        "I don't enjoy this type of work" // AI: 0, SE: 0.1, CN: 0.1, IS: 0.2, CS: 0.3
+      ]
+    },
+    {
+      question: "How do you feel about designing and building solutions for real-world challenges?",
+      options: [
+        "I enjoy creating and refining software systems", // AI: 0.7, SE: 1, CN: 0.6, IS: 0.5, CS: 0.8
+        "I like the idea but prefer collaborative roles", // AI: 0.5, SE: 0.8, CN: 0.5, IS: 0.6, CS: 0.7
+        "I would rather analyze systems than build them", // AI: 0.4, SE: 0.5, CN: 0.4, IS: 0.7, CS: 0.6
+        "I am not interested in developing solutions" // AI: 0.2, SE: 0.3, CN: 0.3, IS: 0.5, CS: 0.4
+      ]
+    },
+    {
+      question: "How interested are you in connecting systems and ensuring seamless communication?",
+      options: [
+        "I’m fascinated by it and enjoy learning about it", // AI: 0.6, SE: 0.7, CN: 1, IS: 0.5, CS: 0.8
+        "I find it interesting but not my primary focus", // AI: 0.5, SE: 0.6, CN: 0.7, IS: 0.6, CS: 0.7
+        "I understand its importance but prefer other topics", // AI: 0.3, SE: 0.5, CN: 0.4, IS: 0.5, CS: 0.6
+        "I don't find this area appealing" // AI: 0.1, SE: 0.3, CN: 0.2, IS: 0.3, CS: 0.4
+      ]
+    },
+    {
+      question: "How comfortable are you with managing and interpreting data for decision-making?",
+      options: [
+        "I enjoy organizing and analyzing data", // AI: 0.7, SE: 0.6, CN: 0.5, IS: 1, CS: 0.8
+        "I like analyzing data but not managing systems", // AI: 0.6, SE: 0.5, CN: 0.4, IS: 0.8, CS: 0.7
+        "I prefer using data than handling its systems", // AI: 0.4, SE: 0.4, CN: 0.3, IS: 0.6, CS: 0.6
+        "I’m not comfortable with data management" // AI: 0.2, SE: 0.3, CN: 0.2, IS: 0.4, CS: 0.5
+      ]
+    },
+    {
+      question: "How excited are you about exploring the foundations and theory behind computing?",
+      options: [
+        "I love diving deep into theoretical concepts", // AI: 0.8, SE: 0.6, CN: 0.7, IS: 0.5, CS: 1
+        "I enjoy it but focus more on practical applications", // AI: 0.7, SE: 0.8, CN: 0.6, IS: 0.6, CS: 0.8
+        "I prefer applying concepts over understanding theory", // AI: 0.5, SE: 0.7, CN: 0.5, IS: 0.6, CS: 0.6
+        "I don't enjoy theoretical aspects of computing" // AI: 0.3, SE: 0.5, CN: 0.3, IS: 0.4, CS: 0.4
+      ]
+    }
   ];
+  
 
   const allQuestions = [
     ...gradeQuestions.slice(0, 3),
