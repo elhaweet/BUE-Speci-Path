@@ -81,11 +81,25 @@
   margin-bottom: 10px;
 }
 
-.resources-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.knowledgeHub-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.knowledgeHub-button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+
+.knowledgeHub-button:active {
+  background: #003f7f;
+  transform: translateY(0);
 }
 
 .resource-button {

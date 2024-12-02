@@ -218,24 +218,6 @@ const careerData = [
           "Model Evaluation",
           "Statistical Analysis",
         ],
-        resources: [
-          {
-            title: "Coursera: Machine Learning by Andrew Ng",
-            link: "https://www.coursera.org/learn/machine-learning",
-          },
-          {
-            title: "Udacity: Deep Learning Nanodegree",
-            link: "https://www.udacity.com/course/deep-learning-nanodegree--nd101",
-          },
-          {
-            title: "Fast.ai: Practical Deep Learning for Coders",
-            link: "https://www.fast.ai/",
-          },
-          {
-            title: "Kaggle: Data Science Courses",
-            link: "https://www.kaggle.com/learn/overview",
-          },
-        ],
       },
 
       {
@@ -251,24 +233,6 @@ const careerData = [
           "Statistical Modeling",
           "Data Mining",
           "Critical Thinking",
-        ],
-        resources: [
-          {
-            title: "edX: AI for Everyone",
-            link: "https://www.edx.org/course/ai-for-everyone",
-          },
-          {
-            title: "Kaggle: Advanced ML Techniques",
-            link: "https://www.kaggle.com/learn/advanced-machine-learning-techniques",
-          },
-          {
-            title: "MIT OpenCourseWare: Artificial Intelligence",
-            link: "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-spring-2010/",
-          },
-          {
-            title: "Stanford CS231n: Deep Learning for Computer Vision",
-            link: "http://cs231n.stanford.edu/",
-          },
         ],
       },
 
@@ -286,24 +250,6 @@ const careerData = [
           "Kinematics",
           "Programming",
         ],
-        resources: [
-          {
-            title: "Robotics Certification by MIT",
-            link: "https://www.edx.org/professional-certificate/mitx-robotics",
-          },
-          {
-            title: "Robotics Specialization on Coursera",
-            link: "https://www.coursera.org/specializations/robotics",
-          },
-          {
-            title: "Introduction to Robotics by Stanford",
-            link: "http://robotics.stanford.edu/",
-          },
-          {
-            title: "Robotics: Perception by University of Maryland",
-            link: "https://www.coursera.org/learn/robotics-perception",
-          },
-        ],
       },
 
       {
@@ -319,24 +265,6 @@ const careerData = [
           "Deep Learning",
           "Data Annotation",
           "Model Deployment",
-        ],
-        resources: [
-          {
-            title: "Stanford NLP Course",
-            link: "https://web.stanford.edu/class/cs224n/",
-          },
-          {
-            title: "Hugging Face Tutorials",
-            link: "https://huggingface.co/learn/nlp-course/",
-          },
-          {
-            title: "Deep Learning for NLP with PyTorch",
-            link: "https://pytorch.org/tutorials/begin ner/nlp/index.html",
-          },
-          {
-            title: "Coursera: NLP Specialization by Deeplearning.ai",
-            link: "https://www.coursera.org/specializations/natural-language-processing",
-          },
         ],
       },
 
@@ -354,24 +282,6 @@ const careerData = [
           "Image Segmentation",
           "Feature Detection",
         ],
-        resources: [
-          {
-            title: "Coursera: Introduction to Computer Vision with TensorFlow",
-            link: "https://www.coursera.org/learn/introduction-to-computer-vision-with-tensorflow",
-          },
-          {
-            title: "Udacity: Computer Vision Nanodegree",
-            link: "https://www.udacity.com/course/computer-vision-nanodegree--nd891",
-          },
-          {
-            title: "PyImageSearch Blog",
-            link: "https://www.pyimagesearch.com/",
-          },
-          {
-            title: "Deep Learning for Computer Vision by Adrian Rosebrock",
-            link: "https://www.pyimagesearch.com/deep-learning-computer-vision-python-spring-2020/",
-          },
-        ],
       },
 
       {
@@ -386,24 +296,6 @@ const careerData = [
           "User  Experience Design",
           "Agile Methodologies",
           "Stakeholder Management",
-        ],
-        resources: [
-          {
-            title: "AI for Product Managers by Coursera",
-            link: "https://www.coursera.org/learn/ai-for-product-managers",
-          },
-          {
-            title: "Stanford: AI Product Management",
-            link: "https://online.stanford.edu/courses/sohs-ystart-ai-product-management",
-          },
-          {
-            title: "The Lean Startup by Eric Ries",
-            link: "https://leanstartup.co/",
-          },
-          {
-            title: "Harvard: AI in Business",
-            link: "https://online.hbs.edu/courses/ai-in-business/",
-          },
         ],
       },
     ],
@@ -425,24 +317,6 @@ const careerData = [
           "Testing",
           "Debugging",
         ],
-        resources: [
-          {
-            title: "Udemy: The Complete Web Developer Course",
-            link: "https://www.udemy.com/course/the-complete-web-developer-course-2/",
-          },
-          {
-            title: "Pluralsight: Software Design Patterns",
-            link: "https://www.pluralsight.com/courses/software-design-patterns",
-          },
-          {
-            title: "Codecademy: Learn JavaScript",
-            link: "https://www.codecademy.com/learn/learn-javascript",
-          },
-          {
-            title: "freeCodeCamp: Full Stack Developer Certification",
-            link: "https://www.freecodecamp.org/learn/responsive-web-design/",
-          },
-        ],
       },
 
       {
@@ -458,24 +332,6 @@ const careerData = [
           "Monitoring",
           "Collaboration",
           "Security",
-        ],
-        resources: [
-          {
-            title: "LinkedIn Learning: DevOps Foundations",
-            link: "https://www.linkedin.com/learning/devops-foundations-2",
-          },
-          {
-            title: "AWS Training: DevOps on AWS",
-            link: "https:// www.aws.amazon.com/training/devops/",
-          },
-          {
-            title: "Kubernetes for Developers by Udemy",
-            link: "https://www.udemy.com/course/kubernetes-for-developers/",
-          },
-          {
-            title: "Terraform on Pluralsight",
-            link: "https://www.pluralsight.com/courses/terraform-getting-started",
-          },
         ],
       },
 
@@ -493,25 +349,6 @@ const careerData = [
           "Version Control",
           "Testing",
         ],
-        resources: [
-          {
-            title: "Full Stack Web Developer Bootcamp",
-            link: "https://www.udemy.com/course/the-complete-web-developer-bootcamp/",
-          },
-          {
-            title: "Frontend Masters: Full Stack Advanced Topics",
-            link: "https://frontendmasters.com/courses/full-stack-advanced/",
-          },
-          {
-            title: "The Complete Web Developer Bootcamp by Colt Steele",
-            link: "https://www.udemy.com/course/the-complete-web-developer-bootcamp/",
-          },
-          {
-            title:
-              "MongoDB University: Full Stack Development with Node.js and MongoDB",
-            link: "https://university.mongodb.com/courses/M001/about",
-          },
-        ],
       },
 
       {
@@ -527,24 +364,6 @@ const careerData = [
           "Performance Optimization",
           "Scalability",
           "Testing",
-        ],
-        resources: [
-          {
-            title: "Backend Development on Pluralsight",
-            link: "https://www.pluralsight.com/courses/backend-development",
-          },
-          {
-            title: "Coursera: Backend with Node.js",
-            link: "https://www.coursera.org/learn/backend-nodejs",
-          },
-          {
-            title: "LinkedIn Learning: Learning SQL Programming",
-            link: "https://www.linkedin.com/learning/learning-sql-programming",
-          },
-          {
-            title: "Node.js Documentation",
-            link: "https://nodejs.org/en/docs/",
-          },
         ],
       },
 
@@ -562,24 +381,6 @@ const careerData = [
           "SEO Principles",
           "Performance Optimization",
         ],
-        resources: [
-          {
-            title: "freeCodeCamp: Frontend Developer Certification",
-            link: "https://www.freecodecamp.org/learn/front-end-development-libraries/",
-          },
-          {
-            title: "MDN Web Docs (HTML/CSS/JS)",
-            link: "https://developer.mozilla.org/en-US/docs/Web",
-          },
-          {
-            title: "Udemy: Modern Web Development from Scratch",
-            link: "https://www.udemy.com/course/modern-web-development-from-scratch/",
-          },
-          {
-            title: "Codecademy: Web Development Career Path",
-            link: "https://www.codecademy.com/learn/paths/web-development",
-          },
-        ],
       },
 
       {
@@ -596,21 +397,6 @@ const careerData = [
           "Testing",
           "Deployment",
         ],
-        resources: [
-          {
-            title: "Udemy: iOS 16 & SwiftUI Bootcamp",
-            link: "https://www.udemy.com/course/ios-16-swiftui-bootcamp/",
-          },
-          {
-            title: "Codecademy: Learn Kotlin",
-            link: "https://www.codecademy.com/learn/learn-kotlin",
-          },
-          { title: "Flutter Documentation", link: "https://flutter.dev/docs" },
-          {
-            title: "Google Developer Training for Android",
-            link: "https://developer.android.com/courses ",
-          },
-        ],
       },
 
       {
@@ -626,24 +412,6 @@ const careerData = [
           "Debugging",
           "Hardware Integration",
           "Low-Level Programming",
-        ],
-        resources: [
-          {
-            title: "Coursera: Introduction to Embedded Systems Software",
-            link: "https://www.coursera.org/learn/introduction-to-embedded-systems-software",
-          },
-          {
-            title: "Udemy: Embedded Systems Programming on ARM Cortex-M3/M4",
-            link: "https://www.udemy.com/course/embedded-systems-programming-on-arm-cortex-m3-m4/",
-          },
-          {
-            title: "MIT OpenCourseWare: Embedded Systems",
-            link: "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-111sc-introduction-to-embedded-systems-spring-2011/",
-          },
-          {
-            title: "FreeRTOS Documentation",
-            link: "https://www.freertos.org/",
-          },
         ],
       },
     ],
@@ -665,24 +433,6 @@ const careerData = [
           "Change Management",
           "Risk Assessment",
         ],
-        resources: [
-          {
-            title: "Coursera: IT Fundamentals",
-            link: "https://www.coursera.org/learn/it-fundamentals",
-          },
-          {
-            title: "edX: IT Management",
-            link: "https://www.edx.org/course/it-management",
-          },
-          {
-            title: "Udemy: Business Analysis Fundamentals",
-            link: "https://www.udemy.com/course/business-analysis-fundamentals/",
-          },
-          {
-            title: "LinkedIn Learning: ITIL Foundation",
-            link: "https://www.linkedin.com/learning/itil-foundation-2011",
-          },
-        ],
       },
 
       {
@@ -698,24 +448,6 @@ const careerData = [
           "Requirements Gathering",
           "Documentation",
           "Testing",
-        ],
-        resources: [
-          {
-            title: "Udemy: Systems Analysis & Design",
-            link: "https://www.udemy.com/course/systems-analysis-design/",
-          },
-          {
-            title: "Pluralsight: Database Fundamentals",
-            link: "https://www.pluralsight.com/courses/database-fundamentals",
-          },
-          {
-            title: "edX: Systems Analysis",
-            link: "https://www.edx.org/course/systems-analysis",
-          },
-          {
-            title: "Coursera: Business Process Modeling",
-            link: "https://www.coursera.org/learn/business-process-modeling",
-          },
         ],
       },
 
@@ -733,24 +465,6 @@ const careerData = [
           "Data Governance",
           "Business Acumen",
         ],
-        resources: [
-          {
-            title: "Data Visualization with Tableau",
-            link: "https://www.coursera.org/learn/data-visualization-tableau",
-          },
-          {
-            title: "Power BI Course by Microsoft",
-            link: "https://www.microsoft.com/en-us/learning/power-bi-training.aspx",
-          },
-          {
-            title: "Coursera: Business Intelligence Specialization",
-            link: "https://www.coursera.org/specializations/business-intelligence",
-          },
-          {
-            title: "Udemy: Learn SQL for Data Science",
-            link: "https://www.udemy.com/course/ learn-sql-for-data-science/",
-          },
-        ],
       },
 
       {
@@ -766,24 +480,6 @@ const careerData = [
           "Data Modeling",
           "Security Management",
           "Troubleshooting",
-        ],
-        resources: [
-          {
-            title: "Database Management on Udemy",
-            link: "https://www.udemy.com/course/database-management/",
-          },
-          {
-            title: "Oracle DB Training",
-            link: "https://education.oracle.com/oracle-database-training/overview/pls/odbc",
-          },
-          {
-            title: "SQL Server Training on Pluralsight",
-            link: "https://www.pluralsight.com/courses/sql-server-training",
-          },
-          {
-            title: "MongoDB University",
-            link: "https://university.mongodb.com/",
-          },
         ],
       },
 
@@ -801,24 +497,6 @@ const careerData = [
           "Resource Management",
           "Quality Assurance",
         ],
-        resources: [
-          {
-            title: "Project Management Professional (PMP) Certification",
-            link: "https://www.pmi.org/certifications/project-management-pmp",
-          },
-          {
-            title: "Coursera: IT Project Management",
-            link: "https://www.coursera.org/learn/it-project-management",
-          },
-          {
-            title: "Udemy: Agile Project Management",
-            link: "https://www.udemy.com/course/agile-project-management/",
-          },
-          {
-            title: "LinkedIn Learning: Leading Project Teams",
-            link: "https://www.linkedin.com/learning/leading-project-teams",
-          },
-        ],
       },
 
       {
@@ -834,24 +512,6 @@ const careerData = [
           "Networking",
           "Disaster Recovery",
           "Compliance",
-        ],
-        resources: [
-          {
-            title: "AWS Certified Solutions Architect",
-            link: "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
-          },
-          {
-            title: "Google Cloud Architect Training",
-            link: "https://cloud.google.com/certification/cloud-architect",
-          },
-          {
-            title: "Microsoft Azure Architect Certification",
-            link: "https://learn.microsoft.com/en-us/certifications/azure-architect-design/",
-          },
-          {
-            title: "Cloud Academy: Cloud Architect Learning Path",
-            link: "https://cloudacademy.com/learning-paths/cloud-architect-learning-path-100/",
-          },
         ],
       },
     ],
@@ -873,24 +533,6 @@ const careerData = [
           "Configuration Management",
           "Documentation",
         ],
-        resources: [
-          {
-            title: "Cisco: CCNA Certification",
-            link: "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html",
-          },
-          {
-            title: "CompTIA Network+ Training",
-            link: "https://www.comptia.org/certifications/network",
-          },
-          {
-            title: "LinkedIn Learning: Networking Foundations",
-            link: "https://www.linkedin.com/learning/networking-foundations-2",
-          },
-          {
-            title: "Udemy: Introduction to Networking",
-            link: "https://www.udemy.com/course/introduction-to-networking/",
-          },
-        ],
       },
 
       {
@@ -906,21 +548,6 @@ const careerData = [
           "Network Forensics",
           "Risk Assessment",
           "Security Policies",
-        ],
-        resources: [
-          {
-            title: "Cybersecurity Fundamentals by IBM",
-            link: "https://www.ibm.com/training/cybersecurity-fundamentals",
-          },
-          { title: "SANS Cyber Aces", link: "https://www.cyberaces.org/" },
-          {
-            title: "CompTIA Security+",
-            link: "https://www.comptia.org/certifications/security",
-          },
-          {
-            title: "Certified Ethical Hacker (CEH) Course",
-            link: "https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/",
-          },
         ],
       },
 
@@ -938,24 +565,6 @@ const careerData = [
           "Load Balancing",
           "Monitoring",
         ],
-        resources: [
-          {
-            title: "Cloud Networking on AWS",
-            link: "https://aws.amazon.com/training/course-descriptions/cloud-networking/",
-          },
-          {
-            title: "Azure Network Engineer Training",
-            link: "https://learn.microsoft.com/en-us/certifications/azure-network-engineer-associate/",
-          },
-          {
-            title: "Google Cloud Training: Network Engineering",
-            link: "https://cloud.google.com/training/certification/cloud-network-engineer",
-          },
-          {
-            title: "Udacity: Cloud DevOps Nanodegree",
-            link: "https://www.udacity.com/course/cloud-devops-nanodegree--nd9990",
-          },
-        ],
       },
 
       {
@@ -972,24 +581,6 @@ const careerData = [
           "Troubleshooting",
           "System Integration",
         ],
-        resources: [
-          {
-            title: "VoIP Training by Cisco",
-            link: "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna-voice.html",
-          },
-          {
-            title: "Asterisk VOIP Certification",
-            link: "https://www.asterisk.org/",
-          },
-          {
-            title: "LinkedIn Learning: VoIP Fundamentals",
-            link: "https://www.linkedin.com/learning/voip-fundamentals",
-          },
-          {
-            title: "Udemy: Introduction to Asterisk and VoIP",
-            link: "https://www.udemy.com/course/introduction-to-asterisk-and-voip/",
-          },
-        ],
       },
 
       {
@@ -1005,24 +596,6 @@ const careerData = [
           "Communication Skills",
           "Problem Solving",
           "Team Collaboration",
-        ],
-        resources: [
-          {
-            title: "Udemy: NOC Engineer Training",
-            link: "https://www.udemy.com/course/noc-engineer-training/",
-          },
-          {
-            title: "Cisco: Network Operations Professional",
-            link: "https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/associate/ccna.html",
-          },
-          {
-            title: "CompTIA Network+",
-            link: "https://www.comptia.org/certifications/network",
-          },
-          {
-            title: "LinkedIn Learning: Network Operations Center Fundamentals",
-            link: "https://www.linkedin.com/learning/network-operations-center-fundamentals",
-          },
         ],
       },
     ],
@@ -1044,24 +617,6 @@ const careerData = [
           "Testing",
           "Debugging",
         ],
-        resources: [
-          {
-            title: "Udemy: Complete Python Course",
-            link: "https://www.udemy.com/course/complete-python-bootcamp/",
-          },
-          {
-            title: "Coursera: Data Structures and Algorithms",
-            link: "https://www.coursera.org/learn/data-structures-algorithms",
-          },
-          {
-            title: "MIT OpenCourseWare: Introduction to Algorithms",
-            link: "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/",
-          },
-          {
-            title: "LeetCode: Coding Challenges",
-            link: "https://leetcode.com/",
-          },
-        ],
       },
 
       {
@@ -1077,24 +632,6 @@ const careerData = [
           "Data Cleaning",
           "Feature Engineering",
           "Communication Skills",
-        ],
-        resources: [
-          {
-            title: "DataCamp: Data Science Bootcamp",
-            link: "https://www.datacamp.com/tracks/data-scientist",
-          },
-          {
-            title: "Kaggle: Intro to Machine Learning",
-            link: "https://www.kaggle.com/learn/intro-to-machine-learning",
-          },
-          {
-            title: "Coursera: Data Science Specialization by Johns Hopkins",
-            link: "https://www.coursera.org/specializations/jhu-data-science",
-          },
-          {
-            title: "edX: Big Data Analytics for Business",
-            link: "https://www.edx.org/course/big-data-analytics-for-business",
-          },
         ],
       },
 
@@ -1112,24 +649,6 @@ const careerData = [
           "Security Policies",
           "Communication Skills",
         ],
-        resources: [
-          {
-            title: "CompTIA Security+",
-            link: "https://www.comptia.org/certifications/security",
-          },
-          {
-            title: "CISSP Training by ISC2",
-            link: "https://www.isc2.org/Certifications/CISSP",
-          },
-          {
-            title: "Udemy: Ethical Hacking from Scratch",
-            link: "https://www.udemy.com/course/ethical-hacking-from-scratch/",
-          },
-          {
-            title: "Cybrary: Security Analyst Career Path",
-            link: "https://www.cybrary.it/course/security-analyst-career-path/",
-          },
-        ],
       },
 
       {
@@ -1146,21 +665,6 @@ const careerData = [
           "Creativity",
           "Team Collaboration",
         ],
-        resources: [
-          {
-            title: "Game Development on Udemy",
-            link: "https://www.udemy.com/course/game-development-bootcamp/",
-          },
-          { title: "Unity Learn Platform", link: "https://learn.unity.com/" },
-          {
-            title: "Unreal Engine Documentation",
-            link: "https://docs.unrealengine.com/en-US/index.html",
-          },
-          {
-            title: "Coursera: Game Design and Development",
-            link: "https://www.coursera.org/learn/game-design-development",
-          },
-        ],
       },
 
       {
@@ -1176,24 +680,6 @@ const careerData = [
           "DevOps Practices",
           "Security",
           "Collaboration",
-        ],
-        resources: [
-          {
-            title: "AWS Certified Developer – Associate",
-            link: "https://aws.amazon.com/certification/certified-developer-associate/",
-          },
-          {
-            title: "Microsoft Azure Development Certification",
-            link: "https://learn.microsoft.com/en-us/certifications/azure-developer-associate/",
-          },
-          {
-            title: "Google Cloud Developer Certification",
-            link: "https://cloud.google.com/certification/cloud-developer",
-          },
-          {
-            title: "Udacity Cloud Developer Nanodegree",
-            link: "https://www.udacity.com/course/cloud-developer-nanodegree--nd9990",
-          },
         ],
       },
     ],

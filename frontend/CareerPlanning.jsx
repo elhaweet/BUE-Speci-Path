@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CareerPlanning.css';
+import { useNavigate } from 'react-router-dom';
 
 function CareerPlanning() {
   const [specializations, setSpecializations] = useState([]);
   const [selectedSpecialization, setSelectedSpecialization] = useState('');
   const [careerOptions, setCareerOptions] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSpecializations = async () => {
@@ -64,20 +66,11 @@ function CareerPlanning() {
                 <h3 className="career-name">{career.name}</h3>
                 <p className="career-description"><strong>Description:</strong> {career.description}</p>
                 <p className="career-skills"><strong>Required Skills:</strong> {career.requiredSkills.join(', ')}</p>
-                <p className="career-skills"><strong>Resources:</strong></p>
-                <div className="resources-container">
-                  {career.resources.map((resource, resourceIndex) => (
-                    <a 
-                      key={resourceIndex} 
-                      href={resource.link} 
-                      className="resource-button" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      {resource.title}
-                    </a>
-                  ))}
-                </div>
+                <br/>
+                <p className="career-skills"><strong>Don't know where to start?</strong></p>
+                <button className="knowledgeHub-button" onClick={() => navigate("/KnowledgeHub", { state: { careerName: career.name, specializationName: selectedSpecialization } })}>
+                  Go to Knowledge Hub
+                </button>
               </div>
             ))}
           </div>
