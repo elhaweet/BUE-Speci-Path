@@ -39,46 +39,62 @@ function CareerPlanning() {
   };
 
   return (
-    <div id='BG-img'>
-      <div className="content">
-        <h2 className="heading">Discover Your Career Path</h2>
+    <div id="BG-img">
+    <div className={`content ${careerOptions.length > 0 ? "top" : "centered"}`}>
+      <h2 className="heading">Discover Your Career Path</h2>
 
-        <div className="select-container">
-          <select
-            value={selectedSpecialization}
-            onChange={handleSpecializationChange}
-            className="select-box"
-          >
-            <option value="" disabled>Select a specialization</option>
-            {specializations.map((specialization, index) => (
-              <option key={index} value={specialization}>{specialization}</option>
-            ))}
-          </select>
-        </div>
-
-        {careerOptions.length > 0 ? (
-          <div>
-            {careerOptions.map((career, index) => (
-              <div
-                key={index}
-                className="career-option"
-              >
-                <h3 className="career-name">{career.name}</h3>
-                <p className="career-description"><strong>Description:</strong> {career.description}</p>
-                <p className="career-skills"><strong>Required Skills:</strong> {career.requiredSkills.join(', ')}</p>
-                <br/>
-                <p className="career-skills"><strong>Don't know where to start?</strong></p>
-                <button className="knowledgeHub-button" onClick={() => navigate("/KnowledgeHub", { state: { careerName: career.name, specializationName: selectedSpecialization } })}>
-                  Go to Knowledge Hub
-                </button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          selectedSpecialization && <p className="no-options">No career options found for this specialization.</p>
-        )}
+      <div className="select-container">
+        <select
+          value={selectedSpecialization}
+          onChange={handleSpecializationChange}
+          className="select-box"
+        >
+          <option value="" disabled>Select a specialization</option>
+          {specializations.map((specialization, index) => (
+            <option key={index} value={specialization}>
+              {specialization}
+            </option>
+          ))}
+        </select>
       </div>
+
+      {careerOptions.length > 0 ? (
+        <div>
+          {careerOptions.map((career, index) => (
+            <div key={index} className="career-option">
+              <h3 className="career-name">{career.name}</h3>
+              <p className="career-description">
+                <strong>Description:</strong> {career.description}
+              </p>
+              <p className="career-skills">
+                <strong>Required Skills:</strong> {career.requiredSkills.join(', ')}
+              </p>
+              <p className="career-skills">
+                <strong>Don't know where to start?</strong>
+              </p>
+              <button
+                className="knowledgeHub-button"
+                onClick={() =>
+                  navigate("/KnowledgeHub", {
+                    state: {
+                      careerName: career.name,
+                      specializationName: selectedSpecialization,
+                    },
+                  })
+                }
+              >
+                Go to Knowledge Hub
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        selectedSpecialization && (
+          <p className="no-options">No career options found for this specialization.</p>
+        )
+      )}
     </div>
+  </div>
   );
 }
 

@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import "./KnowledgeHub.css";
 
 function KnowledgeHub() {
+  const location = useLocation();
+  const { specializationName, careerName } = location.state || {};
+
   const [courses, setCourses] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [KnowledgeHub, setKnowledgeHub] = useState("Software Development");
+  const [KnowledgeHub, setKnowledgeHub] = useState(specializationName || "Software Engineering"); 
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 18;
 
+  // Automatically trigger the search when the component mounts if careerName exists
   useEffect(() => {
-    // Fetch recommended courses for the career when the component loads
+    if (careerName && !searchQuery) {
+      setSearchQuery(careerName);
+      handleSearch();
+    }
+  }, [careerName, searchQuery]);
+
+  // Fetch courses for the current specialization or search query
+  useEffect(() => {
     fetchCourses(KnowledgeHub);
   }, [KnowledgeHub]);
 
@@ -30,7 +42,7 @@ function KnowledgeHub() {
   };
 
   const handleSearch = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (searchQuery.trim()) {
       setCurrentPage(1); // Reset to the first page on new search
       fetchCourses(searchQuery);
@@ -74,7 +86,7 @@ function KnowledgeHub() {
           <input
             type="text"
             placeholder="Search for other courses..."
-            value={searchQuery}
+            value={searchQuery || careerName}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
           />

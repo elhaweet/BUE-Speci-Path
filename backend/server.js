@@ -202,7 +202,7 @@ app.post("/recommend-specialization", (req, res) => {
 // SAMEHHHH ---------------------------------------------------------------------------------
 const careerData = [
   {
-    specialization: "AI (Artificial Intelligence)",
+    specialization: "Artificial Intelligence",
     careers: [
       {
         name: "Machine Learning Engineer",
@@ -301,7 +301,7 @@ const careerData = [
     ],
   },
   {
-    specialization: "SE (Software Engineering)",
+    specialization: "Software Engineering",
     careers: [
       {
         name: "Software Developer",
@@ -417,7 +417,7 @@ const careerData = [
     ],
   },
   {
-    specialization: "IS (Information Systems)",
+    specialization: "Information Systems",
     careers: [
       {
         name: "IT Consultant",
@@ -517,7 +517,7 @@ const careerData = [
     ],
   },
   {
-    specialization: "CN (Computer Networks)",
+    specialization: "Computer Networks",
     careers: [
       {
         name: "Network Administrator",
@@ -601,7 +601,7 @@ const careerData = [
     ],
   },
   {
-    specialization: "CS (Computer Science)",
+    specialization: "Computer Science",
     careers: [
       {
         name: "Software Engineer",
