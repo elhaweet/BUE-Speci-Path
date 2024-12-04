@@ -1,0 +1,135 @@
+/* General Styles */
+.auth-body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #333;
+  }
+  
+  /* Auth Container */
+  .auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* Card Style */
+  .auth-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  /* Heading */
+  .auth-card h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Form Group */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #2575fc;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+  }
+  
+  /* Buttons */
+  .auth-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: #2575fc;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+  }
+  
+  .auth-button:hover {
+    background: #1a5cb0;
+  }
+  
+  .guest-button {
+    background-color: #f4b400;
+  }
+  
+  .guest-button:hover {
+    background-color: #d89b00;
+  }
+  
+  /* Toggle Text */
+  .toggle-text {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .toggle-link {
+    color: #2575fc;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .toggle-link:hover {
+    color: #1a5cb0;
+  }
+  
+  /* Message */
+  .message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .auth-card {
+      padding: 20px;
+    }
+  
+    .auth-card h1 {
+      font-size: 1.5rem;
+    }
+  
+    .auth-button {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+  

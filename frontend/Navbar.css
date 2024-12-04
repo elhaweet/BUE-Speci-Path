@@ -1,0 +1,138 @@
+/* Sidebar container */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: left 0.3s ease-in-out;
+    padding-top: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Navbar links */
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
+
+.navbar-link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Active link styles */
+.navbar-link.active {
+    background-color: #575757;
+    color: white;
+}
+
+/* Hover effect */
+.navbar-link:hover {
+    background-color: #444444;
+}
+
+/* Login/Logout button */
+.navbar-button {
+    padding: 10px 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.navbar-button.login {
+    background-color: #4CAF50;
+}
+
+.navbar-button.logout {
+    background-color: #FF5722;
+}
+
+.navbar-toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-toggle-button i {
+    font-size: 24px;
+}
+
+.navbar.open {
+    left: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar {
+        width: 220px;
+    }
+
+    .navbar-toggle-button i {
+        font-size: 22px;
+    }
+
+    .navbar-link {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        width: 180px;
+    }
+
+    .navbar-link {
+        font-size: 15px;
+    }
+
+    .navbar-button {
+        font-size: 13px;
+    }
+
+    .navbar-toggle-button {
+        font-size: 24px;
+        padding: 12px;
+    }
+
+    .navbar-toggle-button i {
+        font-size: 20px;
+    }
+}

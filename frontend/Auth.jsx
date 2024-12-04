@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-// import "./Auth.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Auth.css";
 
 const Auth = () => {
   const [formType, setFormType] = useState("login");
@@ -9,6 +10,15 @@ const Auth = () => {
     name: "",
   });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
+  // Redirect to "/recommend" if the user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/recommend");
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,6 +51,8 @@ const Auth = () => {
         setMessage(data.message || "Success!");
         if (formType === "login") {
           localStorage.setItem("token", data.jwt);
+          navigate("/recommend"); // Navigate to "/recommend" after successful login
+          window.location.reload();
         }
       } else {
         setMessage(data.error || "An error occurred.");
@@ -50,65 +62,75 @@ const Auth = () => {
     }
   };
 
+  const handleGuestLogin = () => {
+    // Navigate to "/recommend" without checking credentials
+    navigate("/recommend");
+  };
+
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h1>{formType === "login" ? "Login" : "Sign Up"}</h1>
-        <form onSubmit={handleSubmit}>
-          {formType === "signup" && (
+    <div className="auth-body">
+      <div className="auth-container">
+        <div className="auth-card">
+          <h1>{formType === "login" ? "Login" : "Sign Up"}</h1>
+          <form onSubmit={handleSubmit}>
+            {formType === "signup" && (
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+            )}
             <div className="form-group">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="username">Username</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={formData.name}
+                id="username"
+                name="username"
+                value={formData.username}
                 onChange={handleInputChange}
                 required
               />
             </div>
-          )}
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <button type="submit" className="auth-button">
-            {formType === "login" ? "Login" : "Sign Up"}
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <button type="submit" className="auth-button">
+              {formType === "login" ? "Login" : "Sign Up"}
+            </button>
+          </form>
+          <button onClick={handleGuestLogin} className="auth-button guest-button">
+            Login as Guest
           </button>
-        </form>
-        <p className="toggle-text">
-          {formType === "login"
-            ? "Don't have an account?"
-            : "Already have an account?"}{" "}
-          <span
-            className="toggle-link"
-            onClick={() => {
-              setFormType(formType === "login" ? "signup" : "login");
-              setMessage("");
-            }}
-          >
-            {formType === "login" ? "Sign Up" : "Login"}
-          </span>
-        </p>
-        {message && <p className="message">{message}</p>}
+          <p className="toggle-text">
+            {formType === "login"
+              ? "Don't have an account?"
+              : "Already have an account?"}{" "}
+            <span
+              className="toggle-link"
+              onClick={() => {
+                setFormType(formType === "login" ? "signup" : "login");
+                setMessage("");
+              }}
+            >
+              {formType === "login" ? "Sign Up" : "Login"}
+            </span>
+          </p>
+          {message && <p className="message">{message}</p>}
+        </div>
       </div>
     </div>
   );
