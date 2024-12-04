@@ -1,14 +1,15 @@
 const express = require("express");
-require("dotenv").config({
-  path: "./config/.env",
-});;
+const cors = require("cors");
+const dotenv = require('dotenv');
 const initDBConnection = require("./config/db");
+
 const careerRoutes = require("./routes/careerRoutes");
+const authRouter = require('./routes/auth')
 
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 5000;
+dotenv.config({ path: "./config/.env" });
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -211,6 +212,7 @@ app.post("/recommend-specialization", (req, res) => {
 // SAMEHHHH ---------------------------------------------------------------------------------
 
 app.use("/", careerRoutes);
+app.use("/", authRouter);
 
 //--------------------------nader----------------------------------
 const axios = require("axios");

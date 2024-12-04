@@ -2,14 +2,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MCQComponent from "./mcq";
 import CareerPlanningComponent from "./CareerPlanning";
 import KnowledgeHubComponent from "./KnowledgeHub";
+import AuthComponent from "./Auth";
 
 function AppRouter() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MCQComponent />} />
-        <Route path="/Career" element={<CareerPlanningComponent />} />
-        <Route path="/KnowledgeHub" element={<KnowledgeHubComponent />} />
+      <Route path="/" element={<AuthComponent />} />
+        <Route path="/recommend" element={<MCQComponent />} />
+        <Route path="/career" element={<CareerPlanningComponent />} />
+        <Route path="/knowledgeHub" element={<KnowledgeHubComponent />} />
       </Routes>
     </Router>
   );
