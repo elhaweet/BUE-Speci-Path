@@ -1,3 +1,5 @@
+// routes/knowledgHub.js
+
 const express = require("express");
 const router = express.Router();
 const knowledgeHubController = require("../controllers/knowledgeHubController");

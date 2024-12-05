@@ -1,3 +1,5 @@
+//  services/careerServices.js
+
 const Career = require("../models/Career");
 
 const fetchAllSpecializations = async () => {

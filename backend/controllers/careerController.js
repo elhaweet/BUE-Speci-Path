@@ -1,3 +1,5 @@
+// controllers/careerController.js
+
 const careerService = require("../services/careerService");
 
 const getSpecializations = async (req, res) => {

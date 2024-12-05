@@ -1,3 +1,5 @@
+// model/Career.js
+
 const mongoose = require("mongoose");
 
 const careerSchema = new mongoose.Schema({

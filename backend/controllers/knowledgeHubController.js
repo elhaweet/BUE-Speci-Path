@@ -1,3 +1,5 @@
+// controllers/KnowledgHubController.js
+
 const knowledgeHubService = require("../services/knowledgeHubService");
 
 const getCourses = async (req, res) => {
