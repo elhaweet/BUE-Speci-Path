@@ -16,14 +16,13 @@ function KnowledgeHub() {
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 18;
 
-  // Automatically trigger the search when the component mounts if searchQuery exists
+  // Automatically trigger the initial search
   useEffect(() => {
-    if (searchQuery) {
-      handleSearch();
-    } else if (careerName) {
-      setSearchQuery(careerName);
-    }
-  }, [careerName, searchQuery]);
+    const initialQuery =
+      careerName || specializationName || "Software Engineering";
+    setSearchQuery(initialQuery);
+    fetchCourses(initialQuery); // Automatically load courses on page load
+  }, [careerName, specializationName]);
 
   const fetchCourses = async (query) => {
     setIsLoading(true);
