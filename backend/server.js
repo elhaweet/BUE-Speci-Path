@@ -12,7 +12,12 @@ const authRouter = require("./routes/auth");
 
 const bodyParser = require("body-parser");
 const app = express();
-dotenv.config({ path: "./config/.env" });
+
+
+
+dotenv.config({ path: "./backend/config/.env" });
+//dotenv.config({ path: "./config/.env" });          // This line was the whole issue 🙂
+
 const port = process.env.PORT;
 
 app.use(cors());

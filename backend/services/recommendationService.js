@@ -156,40 +156,59 @@ class RecommendationService {
             if (!grades || !mcqResponses) {
                 throw new Error("Both grades and MCQ responses are required");
             }
-
+    
+            // Validate that we have enough data
+            if (Object.keys(grades).length === 0 || Object.keys(mcqResponses).length === 0) {
+                throw new Error("Grades and MCQ responses cannot be empty");
+            }
+    
             // Calculate scores from modules and MCQs
             const moduleScores = this.calculateModuleScores(grades);
             const mcqScores = this.calculateMcqScores(mcqResponses);
-
+    
             // Normalize individual scores
             const normalizedModuleScores = this.normalizeScores(moduleScores);
             const normalizedMcqScores = this.normalizeScores(mcqScores);
-
+    
             // Combine scores with weights
             const mcqWeight = 1 - moduleWeight;
             const finalScores = normalizedModuleScores.map((moduleScore, index) => 
                 (moduleScore * moduleWeight + normalizedMcqScores[index] * mcqWeight).toFixed(4)
             );
-
+    
+            // Convert final scores to numbers for comparison
+            const finalScoresNumeric = finalScores.map(Number);
+    
             // Find the specialization with highest score
-            const maxScore = Math.max(...finalScores);
-            const maxIndex = finalScores.indexOf(maxScore);
-
+            const maxScore = Math.max(...finalScoresNumeric);
+            const maxIndex = finalScoresNumeric.indexOf(maxScore);
+    
             // Create scores object
             const scoresObject = {};
             this.specializations.forEach((spec, index) => {
                 scoresObject[spec] = parseFloat(finalScores[index]);
             });
-
+    
+            // Determine recommendation with confidence threshold
+            const confidenceThreshold = 0.1; // 30% confidence
+            const recommendation = maxScore >= confidenceThreshold 
+                ? this.specializations[maxIndex] 
+                : "Unable to determine a clear recommendation";
+    
             return {
-                recommendation: this.specializations[maxIndex],
+                recommendation: recommendation,
                 scores: scoresObject,
                 confidence: parseFloat(maxScore)
             };
         } catch (error) {
-            throw new Error(`Error generating recommendation: ${error.message}`);
+            console.error("Recommendation Error:", error);
+            return {
+                recommendation: "Error in recommendation process",
+                scores: {},
+                confidence: 0
+            };
         }
     }
 }
-
+    
 module.exports = RecommendationService;

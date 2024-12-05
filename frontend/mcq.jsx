@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import './mcq-styles.css'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { useNavigate } from 'react-router-dom'; 
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
@@ -107,6 +108,7 @@ const IntroScreen = ({ onComplete }) => {
 };
 
 const MCQComponent = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [showIntro, setShowIntro] = useState(true);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -117,7 +119,7 @@ const MCQComponent = () => {
   const [recommendation, setRecommendation] = useState(null);
   const [specializationScores, setSpecializationScores] = useState(null);
   const [showExploreCareer, setShowExploreCareer] = useState(false);
-
+  
   const gradeQuestions = [
     { question: "What is your grade in module Information Systems?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Introduction to Computing?", options: ["A", "B", "C", "D"] },
@@ -201,6 +203,13 @@ const MCQComponent = () => {
     "D": ["D+", "D", "D-"]
   };
 
+  const handleExploreCareer = () => {
+    navigate('/career', { 
+      state: { 
+        specialization: recommendation 
+      } 
+  });
+  };
   const handleAnswerSelect = (index) => {
     if (selectedAnswer === index) {
       setSelectedAnswer(null);
@@ -253,14 +262,27 @@ const MCQComponent = () => {
 
   const getRecommendation = async () => {
     try {
+      console.log('Grades:', userAnswers);
+      console.log('MCQ Responses:', mcqAnswers);
+  
       const response = await axios.post('http://localhost:5000/recommend-specialization', {
         grades: userAnswers,
         mcqResponses: mcqAnswers
       });
-      setRecommendation(response.data.recommendation);
-      setSpecializationScores(response.data.scores);
+  
+      console.log('Full Backend Response:', response.data);
+  
+      // Ensure you're setting both recommendation and scores
+      if (response.data.recommendation) {
+        setRecommendation(response.data.recommendation);
+        setSpecializationScores(response.data.scores);
+      } else {
+        console.error('No recommendation found in response');
+        setRecommendation('Unable to determine recommendation');
+      }
     } catch (error) {
-      console.error('Error calculating recommendation:', error);
+      console.error('Detailed Recommendation Error:', error.response ? error.response.data : error.message);
+      setRecommendation('Error calculating recommendation');
     }
   };
 
@@ -367,25 +389,35 @@ const MCQComponent = () => {
           </div>
           <h1 className="university-name">The British University In Egypt</h1>
           <AnimatePresence mode="wait">
-            {!isFinished ? (
-              renderQuestion()
+          {!isFinished ? (
+          renderQuestion()
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="result-container"
+          >
+            <h2>Your Recommended Specialization</h2>
+            {recommendation && specializationScores ? (
+              <>
+                <p className="recommendation">
+                  {recommendation || 'No specific recommendation'}
+                </p>
+                <PieChartComponent data={specializationScores} />
+                
+                {/* New button to explore career options */}
+                <button 
+                  className="explore-career-button" 
+                  onClick={handleExploreCareer}
+                >
+                  Continue to Career Exploration
+                </button>
+              </>
             ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="result-container"
-              >
-                <h2>Your Recommended Specialization</h2>
-                {recommendation ? (
-                  <>
-                    <p className="recommendation">{recommendation}</p>
-                    <PieChartComponent data={specializationScores} />
-                  </>
-                ) : (
-                  <p>Calculating recommendation...</p>
-                )}
-              </motion.div>
+              <p>Unable to generate recommendation. Please try again.</p>
             )}
+          </motion.div>
+        )}
           </AnimatePresence>
           {!isFinished && (
             <button 

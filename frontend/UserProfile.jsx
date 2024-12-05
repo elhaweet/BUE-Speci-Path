@@ -79,6 +79,26 @@ const UserProfile = () => {
   const getMessageClass = () =>
     message.toLowerCase().includes("error") ? "message error" : "message success";
 
+  const handleButtonClick = (event) => {
+    const button = event.currentTarget;
+    const circle = document.createElement('span');
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+    circle.style.top = `${event.clientY - button.offsetTop - radius}px`;
+    circle.classList.add('ripple');
+
+    const ripple = button.getElementsByClassName('ripple')[0];
+
+    if (ripple) {
+      ripple.remove();
+    }
+
+    button.appendChild(circle);
+  };
+
   if (loading) {
     return (
       <div className="loading-container">
@@ -88,51 +108,60 @@ const UserProfile = () => {
   }
 
   return (
-    <div className="user-profile">
-      <h2>User Profile</h2>
-      {message && <div className={getMessageClass()}>{message}</div>}
-      <div className="user-details">
-        <div className="user-info">
-          <label>Username</label>
-          <input type="text" name="username" value={user.username} disabled />
-        </div>
-        <div className="user-info">
-          <label>Name</label>
-          <input
-            type="text"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            disabled={!editMode}
-          />
-        </div>
-        <div className="user-info">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-            disabled={!editMode}
-          />
-        </div>
-        {!editMode ? (
-          <button className="edit-button" onClick={handleEdit}>
-            Edit
-          </button>
-        ) : (
-          <div className="edit-actions">
-            <button className="save-button" onClick={handleSave}>
-              Save Changes
-            </button>
-            <button className="cancel-button" onClick={() => setEditMode(false)}>
-              Cancel
-            </button>
-          </div>
-        )}
+    <>
+      <div className="animated-background">
+        <div className="animated-shape shape1"></div>
+        <div className="animated-shape shape2"></div>
+        <div className="animated-shape shape3"></div>
+        <div className="animated-shape shape4"></div>
       </div>
-    </div>
+      <div className="user-profile">
+        <h2>User Profile</h2>
+        {message && <div className={getMessageClass()}>{message}</div>}
+        <div className="user-details">
+          <div className="user-info">
+            <label>Username</label>
+            <input type="text" name="username" value={user.username} disabled />
+          </div>
+          <div className="user-info">
+            <label>Name</label>
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              disabled={!editMode}
+            />
+          </div>
+          <div className="user-info">
+            <label>Password</label>
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              disabled={!editMode}
+            />
+          </div>
+          {!editMode ? (
+            <button className="edit-button" onClick={(e) => { handleButtonClick(e); handleEdit(); }}>
+              Edit
+            </button>
+          ) : (
+            <div className="edit-actions">
+              <button className="save-button" onClick={(e) => { handleButtonClick(e); handleSave(); }}>
+                Save Changes
+              </button>
+              <button className="cancel-button" onClick={(e) => { handleButtonClick(e); setEditMode(false); }}>
+                Cancel
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 
 export default UserProfile;
+
