@@ -59,3 +59,20 @@ module.exports.generateJWT = (user) => {
         throw new Error('Failure to sign in, please try again later.');
     }
 };
+
+module.exports.decryptJWT = async (token) => {
+    const jwtSecret = process.env.JWT_SECRET;
+
+    try {
+        const decoded = JWT.verify(token, jwtSecret);
+
+        const user = await UserModel.findById(decoded.userId).select('-password');
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        return user;
+    } catch (error) {
+        throw new Error('Invalid or expired token');
+    }
+};

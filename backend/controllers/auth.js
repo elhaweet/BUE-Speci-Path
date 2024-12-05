@@ -41,3 +41,63 @@ module.exports.postLogin = async (req, res) => {
         res.status(500).send({ "Error": 'Error occured while logging in.' });
     }
 };
+
+module.exports.getUserFromToken = async (req, res) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+
+    if (!token) {
+        return res.status(400).send({ error: 'Token is required' });
+    }
+
+    try {
+        const user = await AuthService.decryptJWT(token);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(401).send({ error: error.message });
+    }
+};
+
+module.exports.updateUserInfo = async (req, res) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+
+    if (!token) {
+        return res.status(400).send({ error: 'Token is required' });
+    }
+
+    try {
+        const user = await AuthService.decryptJWT(token);
+
+        const allowedUpdates = ['name', 'password'];
+        const updates = Object.keys(req.body);
+
+        const isValidOperation = updates.every((update) => allowedUpdates.includes(update));
+        if (!isValidOperation) {
+            return res.status(400).send({ error: 'Invalid updates' });
+        }
+
+        updates.forEach((update) => {
+            user[update] = req.body[update];
+        });
+
+        if (req.body.password) {
+            const bcrypt = require('bcrypt');
+            user.password = await bcrypt.hash(req.body.password, 12);
+        }
+
+        await user.save();
+
+        const updatedUser = {
+            username: user.username,
+            name: user.name,
+            _id: user._id,
+        };
+
+        res.status(200).json({
+            message: 'User updated successfully',
+            user: updatedUser,
+        });
+    } catch (error) {
+        console.error('Error updating user info:', error);
+        res.status(500).send({ error: 'Failed to update user information' });
+    }
+};

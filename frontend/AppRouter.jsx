@@ -4,6 +4,7 @@ import MCQComponent from "./mcq";
 import CareerPlanningComponent from "./CareerPlanning";
 import KnowledgeHubComponent from "./KnowledgeHub";
 import AuthComponent from "./Auth";
+import UserProfile from "./UserProfile";
 import Navbar from "./Navbar";
 
 function AppRouter() {
@@ -15,6 +16,7 @@ function AppRouter() {
         <Route path="/recommend" element={<MCQComponent />} />
         <Route path="/career" element={<CareerPlanningComponent />} />
         <Route path="/knowledgeHub" element={<KnowledgeHubComponent />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </Router>
   );
