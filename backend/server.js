@@ -1,10 +1,11 @@
 const express = require("express");
 const cors = require("cors");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 const initDBConnection = require("./config/db");
 
+const knowledgeHubRoutes = require("./routes/knowledgeHubRoutes");
 const careerRoutes = require("./routes/careerRoutes");
-const authRouter = require('./routes/auth')
+const authRouter = require("./routes/auth");
 
 const bodyParser = require("body-parser");
 const app = express();
@@ -13,7 +14,6 @@ const port = process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
-
 
 initDBConnection();
 
@@ -77,7 +77,6 @@ class SpecializationRecommender {
         [0.3, 0.5, 0.4, 0.3, 0.4], // Choice D correlations: AI: 0.3, IS: 0.5, CS: 0.4, CN: 0.3, SE: 0.4
       ],
     };
-    
 
     // Add default correlations for Q6 to Q15
     for (let i = 6; i <= 15; i++) {
@@ -215,45 +214,7 @@ app.use("/", careerRoutes);
 app.use("/", authRouter);
 
 //--------------------------nader----------------------------------
-const axios = require("axios");
-
-app.get("/get-courses", async (req, res) => {
-  const { query } = req.query; // Extract search query from request
-  if (!query) {
-    return res.status(400).json({ error: "Query parameter is required" });
-  }
-
-  async function getCourseraCourses(query) {
-    try {
-      // Fetch courses from Coursera API
-      const response = await axios.get(
-        `https://api.coursera.org/api/courses.v1?q=search&query=${query}&includes=instructorIds,partnerIds&fields=name,description,photoUrl`
-      );
-
-      // Process Coursera response to extract relevant course data
-      return response.data.elements.map((course) => ({
-        title: course.name,
-        description: course.description || "No description available",
-        platform: "Coursera",
-        url: `https://www.coursera.org/learn/${course.slug}`,
-        image: course.photoUrl || "No image available",
-      }));
-    } catch (error) {
-      console.error("Error fetching courses from Coursera:", error.message);
-      return []; // Return an empty array on failure
-    }
-  }
-
-  try {
-    const courseraCourses = await getCourseraCourses(query);
-
-    // Return the Coursera courses as JSON response
-    res.json(courseraCourses);
-  } catch (error) {
-    console.error("Error fetching courses:", error.message);
-    res.status(500).json({ error: "Failed to fetch courses" });
-  }
-});
+app.use("/", knowledgeHubRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

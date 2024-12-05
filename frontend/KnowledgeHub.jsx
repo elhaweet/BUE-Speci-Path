@@ -9,30 +9,28 @@ function KnowledgeHub() {
 
   const [courses, setCourses] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [KnowledgeHub, setKnowledgeHub] = useState(specializationName || "Software Engineering"); 
+  const [KnowledgeHub, setKnowledgeHub] = useState(
+    specializationName || "Software Engineering"
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 18;
 
-  // Automatically trigger the search when the component mounts if careerName exists
+  // Automatically trigger the search when the component mounts if searchQuery exists
   useEffect(() => {
-    if (careerName && !searchQuery) {
-      setSearchQuery(careerName);
+    if (searchQuery) {
       handleSearch();
+    } else if (careerName) {
+      setSearchQuery(careerName);
     }
   }, [careerName, searchQuery]);
-
-  // Fetch courses for the current specialization or search query
-  useEffect(() => {
-    fetchCourses(KnowledgeHub);
-  }, [KnowledgeHub]);
 
   const fetchCourses = async (query) => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/get-courses?query=${query}`
-      ); // Replace with your backend API for fetching courses
+        `http://localhost:5000/get-courses?query=${query}` // Replace with your backend API
+      );
       setCourses(response.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
@@ -45,30 +43,26 @@ function KnowledgeHub() {
     if (e) e.preventDefault();
     if (searchQuery.trim()) {
       setCurrentPage(1); // Reset to the first page on new search
-      fetchCourses(searchQuery);
+      fetchCourses(searchQuery.trim());
     }
   };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    // Ensure the scroll happens after DOM update
     setTimeout(() => {
       document.querySelector("#BG-img").scrollIntoView({
         behavior: "smooth",
-        block: "start", // Scrolls to the top of the element
+        block: "start",
       });
-    }, 100); // Small delay to ensure DOM updates
+    }, 100);
   };
 
-  // Get current courses for the page
+  // Pagination logic
   const indexOfLastCourse = currentPage * coursesPerPage;
   const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
   const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
 
-  // Calculate total pages
   const totalPages = Math.ceil(courses.length / coursesPerPage);
-
-  // Create an array of page numbers
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
@@ -76,7 +70,7 @@ function KnowledgeHub() {
       <div className="content">
         <h2 className="heading">Recommended Courses</h2>
 
-        {/* Recommended Career */}
+        {/* Career Info */}
         <div className="career-info">
           <h3>Career Path: {KnowledgeHub}</h3>
         </div>
@@ -86,7 +80,7 @@ function KnowledgeHub() {
           <input
             type="text"
             placeholder="Search for other courses..."
-            value={searchQuery || careerName}
+            value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
           />
