@@ -1,3 +1,5 @@
+// controllers/auth.js
+
 const AuthService = require('../services/auth');
 
 module.exports.postUser = async(req, res) => {

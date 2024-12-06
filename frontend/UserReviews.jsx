@@ -164,7 +164,7 @@ const UserReviews = () => {
             {editReview ? "Save Changes" : "Submit Review"}
           </button>
           {editReview && (
-            <button style={{ marginLeft: "10px" }} type="button" onClick={() => setEditReview(null)}>Cancel</button>
+            <button type="button" onClick={() => setEditReview(null)}>Cancel</button>
           )}
         </form>
 

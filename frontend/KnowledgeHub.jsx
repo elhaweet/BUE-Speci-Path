@@ -28,7 +28,7 @@ function KnowledgeHub() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5000/get-courses?query=${query}` // Replace with your backend API
+        `http://localhost:5000/get-courses?query=${query}`
       );
       setCourses(response.data);
     } catch (error) {
