@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MCQComponent from "./mcq";
 import CareerPlanningComponent from "./CareerPlanning";
 import KnowledgeHubComponent from "./KnowledgeHub";
+import UserReviews from "./UserReviews";
 import AuthComponent from "./Auth";
 import UserProfile from "./UserProfile";
 import Navbar from "./Navbar";
@@ -16,6 +17,7 @@ function AppRouter() {
         <Route path="/recommend" element={<MCQComponent />} />
         <Route path="/career" element={<CareerPlanningComponent />} />
         <Route path="/knowledgeHub" element={<KnowledgeHubComponent />} />
+        <Route path="/review" element={<UserReviews />} />
         <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </Router>

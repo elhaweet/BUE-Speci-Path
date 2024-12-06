@@ -19,7 +19,7 @@ const UserProfile = () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      navigate("/recommend");
+      navigate("/");
       return;
     }
 

@@ -9,14 +9,15 @@ const recommendationRoutes = require("./routes/recommendationRoutes");
 const knowledgeHubRoutes = require("./routes/knowledgeHubRoutes");
 const careerRoutes = require("./routes/careerRoutes");
 const authRouter = require("./routes/auth");
+const reviewRoutes = require("./routes/reviewRoutes");
 
 const bodyParser = require("body-parser");
 const app = express();
 
 
 
-dotenv.config({ path: "./backend/config/.env" });
-//dotenv.config({ path: "./config/.env" });          // This line was the whole issue 🙂
+// dotenv.config({ path: "./backend/config/.env" });
+dotenv.config({ path: "./config/.env" });          // This line was the whole issue 🙂
 
 const port = process.env.PORT;
 
@@ -37,6 +38,9 @@ app.use("/", careerRoutes);
 
 // knowledgeHubRoutes -------------------------------------------------------------------------------
 app.use("/", knowledgeHubRoutes);
+
+// reviewsRoutes -------------------------------------------------------------------------------------
+app.use('/', reviewRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

@@ -49,7 +49,13 @@ const Navbar = () => {
             Knowledge Hub
           </Link>
           
-          {/* Don't show profile if not logged in */}
+          {authState.isLoggedIn && (
+            <Link to="/review" 
+              className={`navbar-link ${location.pathname === '/review' ? 'active' : ''}`}>
+              Review
+            </Link>
+          )}
+
           {authState.isLoggedIn && (
             <Link to="/profile" 
               className={`navbar-link ${location.pathname === '/profile' ? 'active' : ''}`}>
