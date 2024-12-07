@@ -9,9 +9,7 @@ function KnowledgeHub() {
 
   const [courses, setCourses] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [KnowledgeHub, setKnowledgeHub] = useState(
-    specializationName || "Software Engineering"
-  );
+  const [KnowledgeHub, setKnowledgeHub] = useState(specializationName);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 18;
@@ -19,7 +17,7 @@ function KnowledgeHub() {
   // Automatically trigger the initial search
   useEffect(() => {
     const initialQuery =
-      careerName || specializationName || "Software Engineering";
+      careerName || specializationName;
     setSearchQuery(initialQuery);
     fetchCourses(initialQuery); // Automatically load courses on page load
   }, [careerName, specializationName]);
@@ -70,9 +68,12 @@ function KnowledgeHub() {
         <h2 className="heading">Recommended Courses</h2>
 
         {/* Career Info */}
-        <div className="career-info">
-          <h3>Career Path: {KnowledgeHub}</h3>
-        </div>
+        {KnowledgeHub && (
+          <div className="career-info">
+            <h3>Career Path: {KnowledgeHub}</h3>
+          </div>
+        )}
+
 
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="search-bar">
@@ -95,11 +96,17 @@ function KnowledgeHub() {
           <div className="course-list">
             {currentCourses.map((course, index) => (
               <div key={index} className="course-item">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="course-image"
-                />
+                <a
+                  href={course.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="course-image"
+                  />
+                </a>
                 <h3 className="course-title">{course.title}</h3>
                 <p>
                   <strong>Platform:</strong> {course.platform}
@@ -112,7 +119,7 @@ function KnowledgeHub() {
                 >
                   View Course
                 </a>
-              </div>
+            </div>            
             ))}
           </div>
         ) : (
