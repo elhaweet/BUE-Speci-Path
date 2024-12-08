@@ -121,15 +121,15 @@ const MCQComponent = () => {
   const [showExploreCareer, setShowExploreCareer] = useState(false);
   
   const gradeQuestions = [
-    { question: "What is your grade in module Information Systems?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Introduction to Information Systems?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Introduction to Computing?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Math 1?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Math 2?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module Introduction to Web Programming?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Principles of Web Programming?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Software Engineering 1?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Programming in Java?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module Probability and Statistics?", options: ["A", "B", "C", "D"] },
-    { question: "What is your grade in module Introduction to Networking?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Probabilities and Statistics?", options: ["A", "B", "C", "D"] },
+    { question: "What is your grade in module Introduction to Computer Networks?", options: ["A", "B", "C", "D"] },
     { question: "What is your grade in module Operating Systems?", options: ["A", "B", "C", "D"] },
   ];
 
