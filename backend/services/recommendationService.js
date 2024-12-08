@@ -1,7 +1,5 @@
 //  services/recommendationService.js
 
-const SpecializationModel = require('../models/Specialization');
-
 class RecommendationService {
     constructor() {
         // Define specializations
