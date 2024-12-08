@@ -2,6 +2,7 @@
 
 const AuthService = require('../services/auth');
 
+// Creates a new user after checking if the username already exists
 module.exports.postUser = async(req, res) => {
     try{
         const userInfo = {
@@ -24,6 +25,7 @@ module.exports.postUser = async(req, res) => {
     }
 };
 
+// Logs in the user by checking credentials and generating a JWT
 module.exports.postLogin = async (req, res) => {
     const { username, password } = req.body;
 
@@ -44,6 +46,7 @@ module.exports.postLogin = async (req, res) => {
     }
 };
 
+// Retrieves the user associated with the provided JWT token
 module.exports.getUserFromToken = async (req, res) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
 
@@ -59,6 +62,7 @@ module.exports.getUserFromToken = async (req, res) => {
     }
 };
 
+// Updates user information after validating the JWT token and allowed updates
 module.exports.updateUserInfo = async (req, res) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
 

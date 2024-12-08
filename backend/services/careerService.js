@@ -2,6 +2,7 @@
 
 const Career = require("../models/Career");
 
+// Fetch all specializations from the Career model
 const fetchAllSpecializations = async () => {
   try {
     const specializations = await Career.find({}, { specialization: 1, _id: 0 });
@@ -11,6 +12,7 @@ const fetchAllSpecializations = async () => {
   }
 };
 
+// Fetch careers for a specific specialization
 const fetchCareersForSpecialization = async (specialization) => {
   try {
     const careerData = await Career.findOne({ specialization });

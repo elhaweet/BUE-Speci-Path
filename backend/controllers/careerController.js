@@ -2,6 +2,7 @@
 
 const careerService = require("../services/careerService");
 
+// Fetches all specializations and returns them in response
 const getSpecializations = async (req, res) => {
   try {
     const specializations = await careerService.fetchAllSpecializations();
@@ -15,6 +16,7 @@ const getSpecializations = async (req, res) => {
   }
 };
 
+// Fetches careers based on the provided specialization and returns them in response
 const getCareers = async (req, res) => {
   try {
     const { specialization } = req.query;

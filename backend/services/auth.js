@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const UserModel = require('../models/User');
 const JWT = require('jsonwebtoken');
 
+// Hash the user's password and create a new user
 module.exports.createUser = async (userInfo) => {
     try{
         let hashedPassword = await bcrypt.hash(userInfo.password, 12);
@@ -18,6 +19,7 @@ module.exports.createUser = async (userInfo) => {
     }
 };
 
+// Check if a user already exists by their username
 module.exports.doesUserExist = async (username) => {
     const existingUser = await UserModel.findOne({ username: username });
     
@@ -28,6 +30,7 @@ module.exports.doesUserExist = async (username) => {
     }
 };
 
+// Verify the user's credentials by comparing the password
 module.exports.checkCredentials = async (username, password) => {
     try{
         const user = await UserModel.findOne({ username: username });
@@ -44,6 +47,7 @@ module.exports.checkCredentials = async (username, password) => {
     }
 };
 
+// Generate a JWT for the authenticated user
 module.exports.generateJWT = (user) => {
     const jwtPayload = {
         userId: user._id,
@@ -60,6 +64,7 @@ module.exports.generateJWT = (user) => {
     }
 };
 
+// Decrypt the JWT to retrieve user information
 module.exports.decryptJWT = async (token) => {
     const jwtSecret = process.env.JWT_SECRET;
 

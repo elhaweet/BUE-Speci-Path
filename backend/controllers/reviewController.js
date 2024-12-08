@@ -3,6 +3,7 @@
 const { createReview, getReviewsByUser, updateReview, deleteReview } = require('../services/reviewService');
 const { decryptJWT } = require('../services/auth');
 
+// Create a new review
 exports.createReview = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -15,6 +16,7 @@ exports.createReview = async (req, res) => {
   }
 };
 
+// Get reviews by the authenticated user
 exports.getReviews = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -27,6 +29,7 @@ exports.getReviews = async (req, res) => {
   }
 };
 
+// Update an existing review
 exports.updateReview = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -39,6 +42,7 @@ exports.updateReview = async (req, res) => {
   }
 };
 
+// Delete a review
 exports.deleteReview = async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
