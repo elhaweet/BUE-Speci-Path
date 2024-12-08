@@ -4,31 +4,34 @@ import "./CareerPlanning.css";
 import { useNavigate } from "react-router-dom";
 
 function CareerPlanning() {
+  // State for specializations, selected specialization, career options, and loading state
   const [specializations, setSpecializations] = useState([]);
   const [selectedSpecialization, setSelectedSpecialization] = useState("");
   const [careerOptions, setCareerOptions] = useState([]);
-  const [loading, setLoading] = useState(true); // New state for loading
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Fetch specializations when the component is first rendered
   useEffect(() => {
     const fetchSpecializations = async () => {
       try {
-        setLoading(true); // Start loading
+        setLoading(true);
         const response = await axios.get("http://localhost:5000/get-specializations");
         setSpecializations(response.data);
       } catch (error) {
         console.error("Error fetching specializations:", error);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
     };
 
     fetchSpecializations();
   }, []);
 
+  // Fetch career options based on the selected specialization
   const fetchCareerOptions = async (specialization) => {
     try {
-      setLoading(true); // Start loading
+      setLoading(true);
       const response = await axios.get(
         `http://localhost:5000/explore-career-options?specialization=${specialization}`
       );
@@ -37,10 +40,11 @@ function CareerPlanning() {
       console.error("Error fetching career options:", error);
       setCareerOptions([]);
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
+  // Handle specialization change and fetch related career options
   const handleSpecializationChange = (e) => {
     const selected = e.target.value;
     setSelectedSpecialization(selected);
@@ -49,7 +53,7 @@ function CareerPlanning() {
 
   return (
     <div id="BG-img">
-      {loading ? ( // Show loader when loading
+      {loading ? (
         <div className="loader-container">
           <div className="spinner"></div>
         </div>

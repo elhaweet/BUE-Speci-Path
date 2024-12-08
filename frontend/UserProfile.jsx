@@ -47,7 +47,7 @@ const UserProfile = () => {
   }, [navigate]);
 
   const handleEdit = () => {
-    setEditMode(true);
+    setEditMode(true); // Enable editing mode
   };
 
   const handleSave = async () => {
@@ -59,6 +59,7 @@ const UserProfile = () => {
     };
 
     try {
+      // Save the updated user data to the server
       const response = await axios.put("http://localhost:5000/user", updatedUser, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -73,7 +74,7 @@ const UserProfile = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    setUser({ ...user, [name]: value }); // Update user state on input change
   };
 
   const getMessageClass = () =>

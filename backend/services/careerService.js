@@ -1,4 +1,4 @@
-//  services/careerServices.js
+//  services/careerService.js
 
 const Career = require("../models/Career");
 

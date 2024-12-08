@@ -1,4 +1,4 @@
-//  services/KnowledgHub.js
+//  services/KnowledgHubService.js
 
 const axios = require("axios");
 

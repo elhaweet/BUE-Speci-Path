@@ -12,6 +12,7 @@ const UserReviews = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // Check for token and redirect to "/recommend" if not present
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/");
@@ -36,6 +37,7 @@ const UserReviews = () => {
     fetchUserReviews();
   }, [navigate]);
 
+  // Handle adding a new review
   const handleAddReview = async () => {
     const token = localStorage.getItem("token");
     try {
@@ -53,6 +55,7 @@ const UserReviews = () => {
     }
   };
 
+  // Handle editing an existing review
   const handleEditReview = async () => {
     const token = localStorage.getItem("token");
     try {
@@ -74,6 +77,7 @@ const UserReviews = () => {
     }
   };
 
+  // Handle deleting a review
   const handleDeleteReview = async (reviewId) => {
     const token = localStorage.getItem("token");
     try {
@@ -88,6 +92,7 @@ const UserReviews = () => {
     }
   };
 
+  // Handle form input changes for both adding and editing reviews
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     if (editReview) {

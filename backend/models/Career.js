@@ -1,4 +1,4 @@
-// model/Career.js
+// models/Career.js
 
 const mongoose = require("mongoose");
 

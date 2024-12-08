@@ -1,4 +1,4 @@
-// routes/knowledgHub.js
+// routes/knowledgHubRoutes.js
 
 const express = require("express");
 const router = express.Router();

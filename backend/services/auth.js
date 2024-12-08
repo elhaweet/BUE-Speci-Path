@@ -1,3 +1,5 @@
+//  services/auth.js
+
 const bcrypt = require('bcrypt');
 const UserModel = require('../models/User');
 const JWT = require('jsonwebtoken');

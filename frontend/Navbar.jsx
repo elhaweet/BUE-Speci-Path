@@ -20,7 +20,7 @@ const Navbar = () => {
     }
   };
 
-  // Hide the Navbar if we're on the login page
+  // Hide the Navbar if user is on the login page
   if (location.pathname === "/") {
     return null;
   }
