@@ -55,7 +55,7 @@ const Auth = () => {
           window.location.reload();
         }
       } else {
-        setMessage(data.error || "An error occurred.");
+        setMessage(data.error || "Invalid credentials, please enter the correct username and password.");
       }
     } catch (error) {
       setMessage("Failed to connect to the server. Please try again.");
