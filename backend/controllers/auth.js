@@ -107,3 +107,24 @@ module.exports.updateUserInfo = async (req, res) => {
         res.status(500).send({ error: 'Failed to update user information' });
     }
 };
+
+// Checks if the provided token is expired
+module.exports.checkTokenExpiry = async (req, res) => {
+    const token = req.header('Authorization')?.replace('Bearer ', '');
+
+    if (!token) {
+        return res.status(400).send({ error: 'Token is required' });
+    }
+
+    try {
+        const isExpired = AuthService.isTokenExpired(token);
+
+        if (isExpired) {
+            return res.status(401).send({ error: 'Token has expired' });
+        }
+
+        res.status(200).send({ message: 'Token is valid' });
+    } catch (error) {
+        res.status(400).send({ error: error.message });
+    }
+};

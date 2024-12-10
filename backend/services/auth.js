@@ -83,3 +83,18 @@ module.exports.decryptJWT = async (token) => {
         throw new Error('Invalid or expired token');
     }
 };
+
+// Check if a JWT is expired
+module.exports.isTokenExpired = (token) => {
+    const jwtSecret = process.env.JWT_SECRET;
+
+    try {
+        const decoded = JWT.verify(token, jwtSecret);
+        return false;
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            return true;
+        }
+        throw new Error('Invalid token');
+    }
+};

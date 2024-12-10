@@ -8,5 +8,6 @@ authRouter.post("/signup", authController.postUser);
 authRouter.post("/login", authController.postLogin);
 authRouter.get('/user', authController.getUserFromToken);
 authRouter.put('/user', authController.updateUserInfo);
+authRouter.get('/check-token', authController.checkTokenExpiry);
 
 module.exports = authRouter;

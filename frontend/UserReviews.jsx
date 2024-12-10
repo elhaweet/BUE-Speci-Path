@@ -12,12 +12,34 @@ const UserReviews = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check for token and redirect to "/recommend" if not present
+    // Check for token and redirect to "/" if expired or does not exist
     const token = localStorage.getItem("token");
-    if (!token) {
-      navigate("/");
-      return;
-    }
+    const checkTokenExpiry = async () => {
+      if (!token) {
+        navigate("/");
+        return;
+      }
+
+      try {
+        const response = await axios.get("http://localhost:5000/check-token", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (response.data.message !== "Token is valid") {
+          navigate("/");
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 401 && error.response.data.error === "Token has expired") {
+          alert("Your session has expired. Please log in again.");
+        } else {
+          console.error("Token validation error:", error);
+        }
+        localStorage.removeItem("token");
+        navigate("/");
+      }
+    };
+
+    checkTokenExpiry();
 
     // Fetch user-specific reviews using the token
     const fetchUserReviews = async () => {
