@@ -1,6 +1,7 @@
 {
   "name": "bue-specialization-recommendation-backend",
   "private": true,
+  "homepage": "/BUE-Path/",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

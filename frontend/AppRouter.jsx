@@ -10,7 +10,7 @@ import Navbar from "./Navbar";
 
 function AppRouter() {
   return (
-    <Router>
+    <Router basename="/BUE-Path">
       <Navbar />
       <Routes>
         <Route path="/" element={<AuthComponent />} />

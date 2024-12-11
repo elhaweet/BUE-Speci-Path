@@ -265,7 +265,7 @@ const MCQComponent = () => {
       console.log('Grades:', userAnswers);
       console.log('MCQ Responses:', mcqAnswers);
   
-      const response = await axios.post('http://localhost:5000/recommend-specialization', {
+      const response = await axios.post('http://13.60.239.44:5000/recommend-specialization', {
         grades: userAnswers,
         mcqResponses: mcqAnswers
       });
