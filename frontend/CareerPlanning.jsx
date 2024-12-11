@@ -16,7 +16,7 @@ function CareerPlanning() {
     const fetchSpecializations = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://13.60.239.44:5000/get-specializations");
+        const response = await axios.get("http://localhost:5000/get-specializations");
         setSpecializations(response.data);
       } catch (error) {
         console.error("Error fetching specializations:", error);
@@ -33,7 +33,7 @@ function CareerPlanning() {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://13.60.239.44:5000/explore-career-options?specialization=${specialization}`
+        `http://localhost:5000/explore-career-options?specialization=${specialization}`
       );
       setCareerOptions(response.data);
     } catch (error) {

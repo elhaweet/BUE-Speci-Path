@@ -24,7 +24,7 @@ const UserProfile = () => {
       }
 
       try {
-        const response = await axios.get("http://13.60.239.44:5000/check-token", {
+        const response = await axios.get("http://localhost:5000/check-token", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -47,7 +47,7 @@ const UserProfile = () => {
     // Fetch user data if the token exists
     const fetchUserData = async () => {
       try {
-        const response = await axios.get("http://13.60.239.44:5000/user", {
+        const response = await axios.get("http://localhost:5000/user", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -81,7 +81,7 @@ const UserProfile = () => {
 
     try {
       // Save the updated user data to the server
-      const response = await axios.put("http://13.60.239.44:5000/user", updatedUser, {
+      const response = await axios.put("http://localhost:5000/user", updatedUser, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

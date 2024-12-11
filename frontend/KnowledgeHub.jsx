@@ -26,7 +26,7 @@ function KnowledgeHub() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://13.60.239.44:5000/get-courses?query=${query}`
+        `http://localhost:5000/get-courses?query=${query}`
       );
       setCourses(response.data);
     } catch (error) {

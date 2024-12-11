@@ -28,8 +28,8 @@ const Auth = () => {
     e.preventDefault();
     const endpoint =
       formType === "login"
-        ? "http://13.60.239.44:5000/login"
-        : "http://13.60.239.44:5000/signup";
+        ? "http://localhost:5000/login"
+        : "http://localhost:5000/signup";
 
     const requestData =
       formType === "login"
