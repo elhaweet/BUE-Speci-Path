@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CareerPlanning.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation  } from "react-router-dom";
 
 function CareerPlanning() {
   // State for specializations, selected specialization, career options, and loading state
@@ -10,6 +10,8 @@ function CareerPlanning() {
   const [careerOptions, setCareerOptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
+  const passedSpecialization = location.state?.specialization || "";
 
   // Fetch specializations when the component is first rendered
   useEffect(() => {
@@ -18,6 +20,12 @@ function CareerPlanning() {
         setLoading(true);
         const response = await axios.get("http://localhost:5000/get-specializations");
         setSpecializations(response.data);
+
+        if (passedSpecialization) {
+          setSelectedSpecialization(passedSpecialization);
+          fetchCareerOptions(passedSpecialization); // Fetch career options for the passed specialization
+        }
+
       } catch (error) {
         console.error("Error fetching specializations:", error);
       } finally {
@@ -26,7 +34,7 @@ function CareerPlanning() {
     };
 
     fetchSpecializations();
-  }, []);
+  }, [passedSpecialization]);
 
   // Fetch career options based on the selected specialization
   const fetchCareerOptions = async (specialization) => {

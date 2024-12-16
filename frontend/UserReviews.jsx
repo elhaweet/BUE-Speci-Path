@@ -27,6 +27,7 @@ const UserReviews = () => {
 
         if (response.data.message !== "Token is valid") {
           navigate("/");
+          window.location.reload();
         }
       } catch (error) {
         if (error.response && error.response.status === 401 && error.response.data.error === "Token has expired") {
@@ -36,6 +37,7 @@ const UserReviews = () => {
         }
         localStorage.removeItem("token");
         navigate("/");
+        window.location.reload();
       }
     };
 

@@ -333,11 +333,15 @@ h2 {
   cursor: not-allowed;
 }
 
+.question-tracker {
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-
-
-
-
+.question-tracker p {
+  font-weight: bold;
+  color: #333;
+}
 
 .result-container {
   background-color: rgba(240, 245, 255, 0.8);

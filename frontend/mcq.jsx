@@ -118,7 +118,6 @@ const MCQComponent = () => {
   const [isFinished, setIsFinished] = useState(false);
   const [recommendation, setRecommendation] = useState(null);
   const [specializationScores, setSpecializationScores] = useState(null);
-  const [showExploreCareer, setShowExploreCareer] = useState(false);
   
   const gradeQuestions = [
     { question: "What is your grade in module Introduction to Information Systems?", options: ["A", "B", "C", "D"] },
@@ -204,10 +203,10 @@ const MCQComponent = () => {
   };
 
   const handleExploreCareer = () => {
-    navigate('/career', { 
-      state: { 
-        specialization: recommendation 
-      } 
+    navigate('/career', {
+      state: {
+        specialization: recommendation
+      }
   });
   };
   const handleAnswerSelect = (index) => {
@@ -388,6 +387,11 @@ const MCQComponent = () => {
             <div className="logo"></div>
           </div>
           <h1 className="university-name">The British University In Egypt</h1>
+          <div className="question-tracker">
+            <p>
+              Question {currentQuestion + 1} of {allQuestions.length}
+            </p>
+          </div>
           <AnimatePresence mode="wait">
           {!isFinished ? (
           renderQuestion()
@@ -404,8 +408,6 @@ const MCQComponent = () => {
                   {recommendation || 'No specific recommendation'}
                 </p>
                 <PieChartComponent data={specializationScores} />
-                
-                {/* New button to explore career options */}
                 <button 
                   className="explore-career-button" 
                   onClick={handleExploreCareer}
@@ -423,7 +425,11 @@ const MCQComponent = () => {
             <button 
               className="next-button" 
               onClick={handleNextQuestion}
-              disabled={selectedAnswer === null && detailedGrade === null}
+              disabled={
+                (currentQuestion === 3 || currentQuestion === 6 || currentQuestion === 9 || currentQuestion === 11 || currentQuestion === 13)
+                ? (selectedAnswer === null && detailedGrade === null)
+                : (detailedGrade === null)
+              }
             >
               {currentQuestion < allQuestions.length - 1 ? 'Next Question' : 'Finish'}
             </button>
