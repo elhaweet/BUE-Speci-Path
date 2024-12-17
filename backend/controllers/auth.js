@@ -14,10 +14,10 @@ module.exports.postUser = async(req, res) => {
         const userExists = await AuthService.doesUserExist(userInfo.username);
 
         if(userExists){
-            return res.status(422).send({ error: 'A user with the same username already exists.' });
+            return res.status(422).send({ error: 'This username is already taken. Please choose a different one.' });
         } else{
             await AuthService.createUser(userInfo);
-            res.status(201).json({ message: "User created successfully" });
+            res.status(201).json({ message: "Your account is ready! Please head to the login page to get started." });
         }
 
     } catch(error){
