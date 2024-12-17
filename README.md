@@ -128,4 +128,4 @@ Make sure you have the following installed:
    npm run dev
    ```
 
- The frontend will be accessible at http://localhost:3000, and the backend API will be available at http://localhost:5000.
+ The frontend will be accessible at http://localhost:5173, and the backend API will be available at http://localhost:5000.
