@@ -1,6 +1,6 @@
 # BUE Specialization Recommender
 
-This web application provides an interactive platform where users can explore career options, receive personalized career specialization recommendations, access a wide range of online courses, and create or view reviews about different courses or specializations. The backend is built with Node.js, Express, and MongoDB Atlas, while the frontend is created using React with Vite.
+This web application provides an interactive platform where users can receive personalized career specialization recommendations, explore career options, access a wide range of online courses, and create or view reviews about the system. The backend is built with Node.js, Express, and MongoDB Atlas, while the frontend is created using React with Vite.
 
 ## Features
 
