@@ -94,8 +94,8 @@ Make sure you have the following installed:
 
 1. Clone the repository:
     ```
-    git clone https://github.com/Mohamed-Samehh/BUE-Spec-Path/
-    cd BUE-Spec-Path
+    git clone https://github.com/elhaweet/BUE-Speci-Path
+    cd BUE-Speci-Path
     ```
 
 2. Install dependencies in root folder:
